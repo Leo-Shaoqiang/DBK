@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+            /* 轮播图 */
+#banner{ 
+    position: relative;
+    width: 1898px;
+    height: 580px;	
+    margin: 50px auto;
+    margin-top: 0px;
+}
+#banner ul li{
+    list-style-type: none;	
+}
+            /* 轮播图图片 */
+#banner .item{
+    display: none;  
+    position: absolute;
+
+}
+            /* 方向图标 */
+.lr-tab .btn{
+    position: absolute;
+    top:280px;
+    width: 41px;
+    height: 69px;
+    background: url(../../src/assets/imgs/icon-slides.png);
+}
+            /* 左方向图标 */
+.lr-tab .left{
+    left: 223px;
+    background-position-x: -83px;
+}
+            /* 右方向图标 */
+.lr-tab .right{
+    right: 223px;
+    background-position-x:-125px;
+}
+.lr-tab .left:hover{
+    background-position-x:0;
+}
+.lr-tab .right:hover{
+    background-position-x:-41px;
+}
+            /* 点切换 */
+.tab-btn{
+    position: absolute;
+    right: 880px;
+    bottom: 5px;
+    width: 120px;
+}
+.tab-btn .btn{
+    float: left;
+    width: 6px;
+    height: 6px;
+    background: #868686;
+    margin-left: 10px;
+    border: 2px solid #c3c3c3;
+    border-radius: 50%;
+}
+            /* 点切换伪类 */
+.tab-btn .btn:hover{
+    cursor: pointer;
+    background: #e4e4e4;
+    border-color: #f7f7f7;
+}
+            /* 点切换伪类 */
+.tab-btn .active{
+    background: #e4e4e4;
+    border-color: #f7f7f7;
+}
+
+
+
+
+

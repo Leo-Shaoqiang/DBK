@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "bson": "^4.0.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.18"
+  }
+}

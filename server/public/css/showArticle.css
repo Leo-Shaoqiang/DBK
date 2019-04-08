@@ -1,0 +1,13 @@
+.header{
+    text-align: center;
+}
+ul li{
+    list-style-type: none;
+    display: inline-block;
+}
+.writer{
+    margin-right: 50px;
+}
+.content-info{
+    padding: 40px;
+}

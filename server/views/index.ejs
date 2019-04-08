@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lsq的博客</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+        var blog = require('../app.js');
+               
+    </script>
+</head>
+
+<body>
+    <div class="navbar navbar-default">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand"></a>
+            </div>
+            <div class="nav navbar-nav">
+                <li><a href="./">Lsq的博客</a></li>
+                <li><a href="./publish">写博客</a></li>
+                <li><a href="#">消息</a></li>
+                <li><a href="#">关于lsq</a></li>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <li><a href="./login">登录</a></li>
+                <li><a href="./regist">注册</a></li>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="news-list">
+                    <%contents.forEach(function (blog){%>
+                    <div class="news-list-item clearfix">
+                        <div class="col-xs-5">
+                            <img src="./img/mongodb.jpg" alt="">
+                        </div>
+                        <a class="col-xs-7">
+                            <a href="#" class="title">
+                                <%= blog.title %>
+                            </a>
+                            <div class="info">
+                                <span><span class="avatar"><img src="./img/LOGO.jpg"></span>廖绍强</span>
+                                <span>25k</span>
+                                <span>
+                                    <%= blog.time %></span>
+                            </div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="search-bar">
+                    <input type="search" class="form-control" placeholder="搜索博客文章">
+
+                </div>
+                <div class="side-bar-card  flag clearfix">
+                    <div class="col-xs-5">
+                        <img src="./img/logo.png">
+
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="text-lg">Lsq的博客</div>
+                        <div>github：<a href="http://github.com/MooozzZ">github.com/MooozzZ</a></div>
+                    </div>
+
+
+                </div>
+                <div class="side-bar-card">
+                    <div class="card-title">
+                        热度文章
+                    </div>
+                    <div class="card-body">
+                        <div class="list">
+                            <%contents.forEach(function (blog){%>
+                            <div class="item">
+                                <div class="title">
+                                    <a href="./mongodb" class="text">
+                                        <%= blog.title %>
+
+                                    </a>
+
+
+                                </div>
+                                <div class="desc">1w阅读 5k评论
+
+                                </div>
+                            </div>
+                            <%});%>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

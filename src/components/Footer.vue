@@ -40,6 +40,7 @@
         float: left;
         width: 400px;
         height: 200px;
+        bottom: 0px;
     }
     .wx-chat {
         display: inline-block;

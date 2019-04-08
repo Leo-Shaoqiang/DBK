@@ -1,77 +1,61 @@
 <template>
   <div>
-    <el-container>
-      <el-header>
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
+    <el-row>
+      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
+        <el-col :xs="1" :sm="2" :md="2" :lg="2" :xl="1">
           <div class="head-logo">
             <a class="logo" title="share博客" href="#">
               <img src="../assets/imgs/logo.jpg" alt="">
             </a>
           </div>
+        </el-col>
+        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
           <el-menu-item index="1">首页</el-menu-item>
+        </el-col>
+        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
           <el-menu-item index="2">电影</el-menu-item>
+        </el-col>
+        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
           <el-menu-item index="3">美食</el-menu-item>
+        </el-col>
+        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
           <el-menu-item index="4">旅游</el-menu-item>
+        </el-col>
+        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
           <el-menu-item index="5">音乐</el-menu-item>
-          <el-autocomplete class="inline-input" v-model="state2" :fetch-suggestions="querySearch" placeholder="请输入内容" :trigger-on-focus="false">
+        </el-col>
+        <el-col :xs="14" :sm="8" :md="7" :lg="6" :xl="4" :push="6" class="inline-input">
+          <el-autocomplete v-model="state2" :fetch-suggestions="querySearch" placeholder="请输入内容" :trigger-on-focus="false">
           </el-autocomplete>
           <el-button class="button-search">搜索</el-button>
+        </el-col>
+        <el-col :xs="10" :sm="4" :md="11" :lg="4" :xl="4" :push="6">
           <div class="login-registe">
             <a href="#">登录</a>
             <span class="split"> | </span>
             <a href="#">注册</a>
           </div>
-        </el-menu>
-      </el-header>
-      <el-main horizontalScrollPolicy="off" verticalScrollPolicy="off">
-        <!-- 轮播图 -->
-        <div id="banner">
-          <div class="img-wrap">
-            <ul>
-              <li class="item " style="display: block;">
-                <img src="../assets/imgs/1.jpg" width="1890" height="620" alt="">
-              </li>
-              <li class="item">
-                <img src="../assets/imgs/2.jpg" width="1890" height="620" alt="">
-              </li>
-              <li class="item">
-                <img src="../assets/imgs/3.jpg" width="1890" height="620" alt="">
-              </li>
-              <li class="item">
-                <img src="../assets/imgs/4.jpg" width="1890" height="620" alt="">
-              </li>
-              <li class="item">
-                <img src="../assets/imgs/5.jpg" width="1890" height="620" alt="">
-              </li>
-            </ul>
-          </div>
-          <div class="lr-tab">
-            <div class="left btn"></div>
-            <div class="right btn"></div>
-          </div>
-          <div class="tab-btn">
-            <ul>
-              <li class="btn active"></li>
-              <li class="btn"></li>
-              <li class="btn"></li>
-              <li class="btn"></li>
-              <li class="btn"></li>
-            </ul>
-          </div>
-        </div>
-        <!-- 首页推荐 -->
-        <IndexCommend></IndexCommend>
-        <SideBar></SideBar>
-      </el-main>
-      <el-footer>
+        </el-col>
+      </el-menu>
+    </el-row>
+    <!-- 轮播图 -->
+    <el-row>
+      <el-carousel :interval="5000" arrow="always">
+        <el-carousel-item v-for="item in imgList" :key="item.id">
+        <el-row>
+         <el-col :span="24"><img ref="imgHeight" :src="item.idView" class="banner_img"/></el-col>
+        </el-row>
+        </el-carousel-item>
+      </el-carousel>
+    </el-row>
+    <!-- 首页推荐 -->
+    <IndexCommend></IndexCommend>
+      <SideBar></SideBar>
         <Footer></Footer>
-      </el-footer>
-    </el-container>
   </div>
-</template>
+  </template>
 
 <script>
-  import $ from 'jquery';
   import IndexCommend from './IndexCommend.vue';
   import SideBar from './SideBar.vue';
   import Footer from './Footer.vue';
@@ -88,7 +72,13 @@
         //search 
         restaurants: [],
         state1: '',
-        state2: ''
+        state2: '',
+        imgList: [
+          {id: 0, idView: require('../assets/imgs/3.jpg')},
+          {id: 1, idView: require('../assets/imgs/4.jpg')},
+          {id: 2, idView: require('../assets/imgs/3.jpg')},
+          {id: 3, idView: require('../assets/imgs/4.jpg')},
+        ]
       };
     },
     methods: {
@@ -121,76 +111,47 @@
       },
     },
     mounted() {
-      //search 
-      this.restaurants = this.loadAll();
-      // 轮播图
-      var index = 0;
-      $(".tab-btn .btn").click(function() {
-        index = $(this).index();
-        $(this).addClass("active").siblings().removeClass("active");
-        $(".item").eq(index).fadeIn().siblings().fadeOut();
-      });
-      $(".lr-tab .right").click(function() {
-        index++;
-        if (index > 4) {
-          index = 0;
-        }
-        $(".item").eq(index).fadeIn().siblings().fadeOut();
-        $(".tab-btn .btn").eq(index).addClass("active").siblings().removeClass("active");
-      });
-      $(".lr-tab .left").click(function() {
-        index--;
-        if (index < 0) {
-          index = 4;
-        }
-        $(".item").eq(index).fadeIn().siblings().fadeOut();
-        $(".tab-btn .btn").eq(index).addClass("active").siblings().removeClass("active");
-      });
     }
   }
 </script>
      
 <style>
-  @import '../../static/css/tab.css';
   /* 导航鼠标移入 */
   li.el-menu-item:hover {
     background-color: #fff !important;
   }
   /* logo */
   .logo {
-    position: relative;
+    position: relative;   
     float: left;
-    left: 360px;
   }
   .logo>img {
-    width: 140px;
+    width: 70px;
     height: 60px;
   }
   /* 导航之间的间距 */
   .el-menu--horizontal>.el-menu-item {
-    float: left;
-    left: 400px;
+    position: absolute;
     margin-left: 15px !important;
   }
   .nav-first {
     left: 100px !important;
   }
   /* 搜索框 */
-  .inline-input {
-    position: relative;
-    right: 150px !important;
-  }
   .el-input__inner {
+    position: relative;
     margin-top: 13px !important;
   }
-  /* 搜索按钮 */
-  .button-search {
-    position: relative;
-    right: 150px;
+  .inline-input{
+    position: absolute;
+
   }
   /* 登陆注册 */
   .login-registe {
     display: inline-block;
+    position: relative;
+    top: 20px;
+    margin-left: 50px;
   }
   .login-registe>a {
     text-decoration: none;
@@ -206,4 +167,4 @@
     width: 100% !important;
     height: 1900px !important;
   }
-</style>
+</style>21

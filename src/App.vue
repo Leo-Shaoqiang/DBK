@@ -1,9 +1,13 @@
 <template>
   <div id="app">
-   <Index/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <Index/>
+    <router-view/>
   </div>
 </template>
-
 <script>
 import Index from './components/Index.vue'
 
@@ -14,7 +18,6 @@ export default {
   }
 }
 </script>
-
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

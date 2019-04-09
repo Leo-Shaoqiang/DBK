@@ -10,7 +10,7 @@
           </div>
         </el-col>
         <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
-           <router-link to="/Index"><el-menu-item index="1">首页</el-menu-item></router-link>
+           <router-link to="/"><el-menu-item index="1">首页</el-menu-item></router-link>
         </el-col>
         <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
           <router-link to="/Movie"><el-menu-item index="2">电影</el-menu-item></router-link>
@@ -33,7 +33,7 @@
           <div class="login-registe">
             <a href="#">登录</a>
             <span class="split"> | </span>
-            <a href="#">注册</a>
+            <router-link to="/Issue"><a href="#">注册</a></router-link>
           </div>
         </el-col>
       </el-menu>

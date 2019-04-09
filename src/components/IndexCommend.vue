@@ -61,6 +61,7 @@
   margin-top:20px;
   margin-left:20px;
   float: left;
+  margin-bottom:200px;
 }
   /* 推荐按钮 */
   .el-button--warning{

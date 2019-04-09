@@ -49,9 +49,11 @@
       </el-carousel>
     </el-row>
     <!-- 首页推荐 -->
+    <el-row>
     <IndexCommend></IndexCommend>
       <SideBar></SideBar>
         <Footer></Footer>
+    </el-row>
   </div>
   </template>
 

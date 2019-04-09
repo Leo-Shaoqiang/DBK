@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="sidebar">
         <el-button type="warning" class="button-hot">实时热搜</el-button>
         <div class="hot-issues">
             <ul>
@@ -19,6 +19,10 @@
 </script>
 
 <style>
+    #sidebar
+    {
+        float:right;
+    }
     .button-hot {
         position: relative;
         right: -540px;

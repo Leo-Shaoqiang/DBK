@@ -10,10 +10,10 @@
           </div>
         </el-col>
         <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
-          <el-menu-item index="1">首页</el-menu-item>
+           <router-link to="/Index"><el-menu-item index="1">首页</el-menu-item></router-link>
         </el-col>
         <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
-          <el-menu-item index="2">电影</el-menu-item>
+          <router-link to="/Movie"><el-menu-item index="2">电影</el-menu-item></router-link>
         </el-col>
         <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
           <el-menu-item index="3">美食</el-menu-item>
@@ -51,7 +51,6 @@
     <!-- 首页推荐 -->
     <el-row>
     <IndexCommend></IndexCommend>
-    <Communication></Communication>
       <SideBar></SideBar>
         <Footer></Footer>
     </el-row>
@@ -147,7 +146,7 @@
     margin-top: 13px !important;
   }
   .inline-input{
-    position: absolute;
+    position: relative;
 
   }
   /* 登陆注册 */
@@ -170,5 +169,9 @@
     padding: 0 !important;
     width: 100% !important;
     height: 1900px !important;
+  }
+  /* 导航下划线 */
+  a:-webkit-any-link {
+    text-decoration: none !important;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="footer">
         <div class="wx-code">
             <div class="wx-code-img">
                 <img src="../assets/imgs/wx.jpg" width="88" height="88" alt="wx">
@@ -52,5 +52,12 @@
         width: 100%;
         height: 200px;
         background-color: beige;
+    }
+    #footer
+    {
+        position:absolute;
+        bottom:0px;
+        background-color:papayawhip;
+        width:100%;
     }
 </style>

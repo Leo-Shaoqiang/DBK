@@ -51,6 +51,7 @@
     <!-- 首页推荐 -->
     <el-row>
     <IndexCommend></IndexCommend>
+    <Communication></Communication>
       <SideBar></SideBar>
         <Footer></Footer>
     </el-row>
@@ -61,13 +62,14 @@
   import IndexCommend from './IndexCommend.vue';
   import SideBar from './SideBar.vue';
   import Footer from './Footer.vue';
+
   export default {
     components: {
       IndexCommend,
       SideBar,
       Footer,
     },
-    data() {
+    data() {  
       return {
         // 菜单栏
         activeIndex: "1",
@@ -169,4 +171,4 @@
     width: 100% !important;
     height: 1900px !important;
   }
-</style>21
+</style>

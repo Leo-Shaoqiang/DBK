@@ -27,7 +27,6 @@ app.get('/', function (req, res, next) {
     if (err) {
       console.log(err);
     };
-
     res.render('index', {
       contents: data
     });

@@ -2,15 +2,41 @@
   <div>
     <Navbar></Navbar>
     <!-- 轮播图 -->
-    <el-row>
-      <el-carousel :interval="5000" arrow="always">
-        <el-carousel-item v-for="item in imgList" :key="item.id">
-        <el-row>
-         <el-col :span="24"><img ref="imgHeight" :src="item.idView" class="banner_img"/></el-col>
-        </el-row>
-        </el-carousel-item>
-      </el-carousel>
-    </el-row>
+
+     <div id="banner">
+          <div class="img-wrap">
+            <ul>
+              <li class="item " style="display: block;">
+                <img src="../assets/imgs/1.jpg" width="1890" height="620" alt="">
+              </li>
+              <li class="item">
+                <img src="../assets/imgs/2.jpg" width="1890" height="620" alt="">
+              </li>
+              <li class="item">
+                <img src="../assets/imgs/3.jpg" width="1890" height="620" alt="">
+              </li>
+              <li class="item">
+                <img src="../assets/imgs/4.jpg" width="1890" height="620" alt="">
+              </li>
+              <li class="item">
+                <img src="../assets/imgs/5.jpg" width="1890" height="620" alt="">
+              </li>
+            </ul>
+          </div>
+          <div class="lr-tab">
+            <div class="left btn"></div>
+            <div class="right btn"></div>
+          </div>
+          <div class="tab-btn">
+            <ul>
+              <li class="btn active"></li>
+              <li class="btn"></li>
+              <li class="btn"></li>
+              <li class="btn"></li>
+              <li class="btn"></li>
+            </ul>
+          </div>
+        </div>
     <!-- 首页推荐 -->
     <el-row>
     <IndexCommend></IndexCommend>
@@ -21,6 +47,7 @@
   </template>
 
 <script>
+  import $ from 'jquery';
   import IndexCommend from './IndexCommend.vue';
   import SideBar from './SideBar.vue';
   import Footer from './Footer.vue';
@@ -33,20 +60,34 @@
       Footer,
       Navbar,
     },
-    data() {  
-      return {
-        imgList: [
-          {id: 0, idView: require('../assets/imgs/3.jpg')},
-          {id: 1, idView: require('../assets/imgs/4.jpg')},
-          {id: 2, idView: require('../assets/imgs/3.jpg')},
-          {id: 3, idView: require('../assets/imgs/4.jpg')},
-        ]
-      };
-    },
-  
+   mounted() {
+      // 轮播图
+      var index = 0;
+      $(".tab-btn .btn").click(function() {
+        index = $(this).index();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".item").eq(index).fadeIn().siblings().fadeOut();
+      });
+      $(".lr-tab .right").click(function() {
+        index++;
+        if (index > 4) {
+          index = 0;
+        }
+        $(".item").eq(index).fadeIn().siblings().fadeOut();
+        $(".tab-btn .btn").eq(index).addClass("active").siblings().removeClass("active");
+      });
+      $(".lr-tab .left").click(function() {
+        index--;
+        if (index < 0) {
+          index = 4;
+        }
+        $(".item").eq(index).fadeIn().siblings().fadeOut();
+        $(".tab-btn .btn").eq(index).addClass("active").siblings().removeClass("active");
+      });
+    }
   }
 </script>
      
 <style>
-
+  @import '../../static/css/tab.css';
 </style>

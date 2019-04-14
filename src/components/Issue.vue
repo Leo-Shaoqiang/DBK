@@ -20,7 +20,15 @@
 		<form>
 		<input type="text" placeholder="请输入标题" class="inputstyle"><br>
 		<input type="text" placeholder="请输入标签" class="inputstyle"><br>
-		<textarea name="content" style="width:800px;height:400px;">KindEditor</textarea><br>
+		<div class="edit_container">
+        <quill-editor 
+            v-model="content" 
+            ref="myQuillEditor" 
+            :options="editorOption" 
+            @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+            @change="onEditorChange($event)">
+        </quill-editor>
+		</div>
 		<div class="buttons">
 		<button style="float:left;margin-left:20%;">提交</button>
 		<button style="float:right;margin-right:20%;">暂时保存</button>
@@ -31,10 +39,34 @@
 </template>
 <script>
 import Navbar from '@/views/Navbar.vue';
+import { quillEditor } from "vue-quill-editor"; //调用编辑器
+import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.snow.css';
+import 'quill/dist/quill.bubble.css';
 export default {
     components: {
-      Navbar,
+		Navbar,
+		quillEditor
 	},
+data() {
+        return {
+            content: ``,
+            editorOption: {}
+        }
+    },
+    methods: {
+        onEditorReady() { // 准备编辑器
+ 
+        },
+        onEditorBlur(){}, // 失去焦点事件
+        onEditorFocus(){}, // 获得焦点事件
+        onEditorChange(){}, // 内容改变事件
+    },
+    computed: {
+        editor() {
+            return this.$refs.myQuillEditor.quill;
+        },
+    }
 }
 </script>
 <style>

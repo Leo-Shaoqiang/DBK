@@ -5,7 +5,7 @@
             <ul>
             <li>绿皮书</li>
             <li>流浪地球</li>
-            <li>爱乐之城</li>
+            <li>爱乐之城</li>  
             <li>白蛇.缘起</li>
 
             </ul>
@@ -20,8 +20,8 @@
 
 <style>
     #sidebar
-    {
-        float:right;
+    {   
+        position: relative;
     }
     .button-hot {
         position: relative;

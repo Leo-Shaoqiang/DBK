@@ -9,8 +9,10 @@
     "start": "vue-cli-service serve"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.6.3",
     "vue": "^2.6.6",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.3"
   },
   "devDependencies": {

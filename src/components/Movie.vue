@@ -51,7 +51,7 @@
     
     <IndexCommend></IndexCommend>
     
-   
+
        
   </div>
   </template>
@@ -63,7 +63,6 @@
 
   export default {
     components: {
-     
       Classify,
       IndexCommend
     },

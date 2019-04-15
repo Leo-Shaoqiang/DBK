@@ -1,44 +1,45 @@
 <template>
     <div>
-<el-row>
+ <el-row>
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
-        <el-col :xs="1" :sm="2" :md="2" :lg="2" :xl="1">
+        <el-col :span="7">
           <div class="head-logo">
             <a class="logo" title="share博客" href="#">
-              <img src="../assets/imgs/logo.jpg" alt="">
+              <img src="" alt="">
             </a>
           </div>
         </el-col>
-        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
-           <router-link to="/"><el-menu-item index="1">首页</el-menu-item></router-link>
+        <el-col :span="2">
+          <router-link to="/"><el-menu-item index="1">首页</el-menu-item></router-link>
         </el-col>
-        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
+        <el-col :span="2">
           <router-link to="/Movie"><el-menu-item index="2">电影</el-menu-item></router-link>
         </el-col>
-        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
+        <el-col :span="2">
           <el-menu-item index="3">美食</el-menu-item>
         </el-col>
-        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
+        <el-col :span="2">
           <el-menu-item index="4">旅游</el-menu-item>
         </el-col>
-        <el-col :xs="3" :sm="2" :md="2" :lg="1" :xl="1" :push="6">
+        <el-col :span="2">
           <el-menu-item index="5">音乐</el-menu-item>
         </el-col>
-        <el-col :xs="14" :sm="8" :md="7" :lg="6" :xl="4" :push="6" class="inline-input">
+        <el-col :span="4">
           <el-autocomplete v-model="state2" :fetch-suggestions="querySearch" placeholder="请输入内容" :trigger-on-focus="false">
           </el-autocomplete>
           <el-button class="button-search">搜索</el-button>
         </el-col>
-        <el-col :xs="10" :sm="4" :md="11" :lg="4" :xl="4" :push="6">
-          <div class="login-registe">
-            <a href="#">登录</a>
+        <el-col :span="3">
+         <div class="login-registe">
+              <router-link to="/Login"><a href="#">登录</a></router-link>
             <span class="split"> | </span>
             <router-link to="/Issue"><a href="#">注册</a></router-link>
-          </div>
+          </div> 
         </el-col>
       </el-menu>
     </el-row>
     </div>
+    
 </template>
 
 <script lang="ts">

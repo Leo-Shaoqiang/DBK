@@ -24,7 +24,7 @@
             <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
             <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
             <br>
-            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
+            <img src="../../src/assets/imgs/icons/head1.jpg" width="100px;" style="margin:0 25%;">
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
@@ -39,7 +39,7 @@
             <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
             <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
             <br>
-            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
+            <img src="../../src/assets/imgs/icons/head1.jpg" width="100px;" style="margin:0 25%;">
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
@@ -103,32 +103,32 @@
         border: 3px solid yellow;
         margin-left: 10%;
         width: 80%;
-        height: 1200rem;
+        height: 1200px;
     }
     .box
     {
         border: 1px solid rgb(248, 250, 159);
         margin-left: 0;
         width: 100%;
-        height: 400rem;
+        height: 400px;
     }
     .communication
     {
         list-style-type:none;
         float: left;
         position: absolute;
-        bottom:10rem;
-        margin-left:30rem;
+        bottom:10px;
+        margin-left:30px;
     }
     .communication li
     {
         display:inline;
         cursor: pointer;
-        margin-right:20rem;
+        margin-right:20px;
     }
     p
     {
-        font-size:15rem;
+        font-size:15px;
         margin:7% 5%;
         width:80%;
     }

@@ -33,7 +33,7 @@
          <div class="login-registe">
               <router-link to="/Login"><a href="#">登录</a></router-link>
             <span class="split"> | </span>
-            <router-link to="/Issue"><a href="#">注册</a></router-link>
+            <router-link to="/Register"><a href="#">注册</a></router-link>
           </div> 
         </el-col>
       </el-menu>

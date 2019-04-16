@@ -1,117 +1,34 @@
 <template>
         <div class="index">
                 <el-row>
-                        <IndexCommend></IndexCommend>
+                        <el-col :span="6" :offset="20">
+                        
 
-                        <SideBar></SideBar>
+                        
+    <div id="sidebar">
+        <el-button type="warning">实时热搜</el-button>
+        
+            <ul>
+            <li>绿皮书<i class="el-icon-caret-top"></i></li>
+            <li>流浪地球<i class="el-icon-caret-top"></i></li>
+            <li>爱乐之城<i class="el-icon-caret-bottom"></i></li>  
+            <li>白蛇.缘起<i class="el-icon-caret-top"></i></li>
 
+            </ul>
+        
+    </div>
+
+                        </el-col>
                 </el-row>
 
 
-                <!-- <el-row>
-                        <el-col :span="4">
-                                                <div class="box">
-                                                        <img src="" width="25px" style="float:left;">
-                                                        <span id="usersname" style="float:left;">用户ID</span>
-                                                        <br>
-                                                        <img src="" width="200px;">
-                                                        <p style="width:200px;">艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯
-                                                                Michelle Williams
-                                                                饰）相恋多年，彼此之间感情十分要好。安妮是一名律师，接手了生命基金会的案件，在女友的邮箱里，艾迪发现了基金会老板德雷克不为人知的秘密....
-                                                        </p>
-                                                        <ul class="communication">
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="23px"></li>
-                                                        </ul>
-                                                </div>
-                                        </el-col>
-                                        <el-col :span="4">
-                                                <div class="box">
-                                                        <img src="" width="25px" style="float:left;">
-                                                        <span id="usersname" style="float:left;">用户ID</span>
-                                                        <br>
-                                                        <img src="" width="200px;">
-                                                        <p style="width:200px;">艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯
-                                                                Michelle Williams
-                                                                饰）相恋多年，彼此之间感情十分要好。安妮是一名律师，接手了生命基金会的案件，在女友的邮箱里，艾迪发现了基金会老板德雷克不为人知的秘密....
-                                                        </p>
-                                                        <ul class="communication">
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="23px"></li>
-                                                        </ul>
-                                                </div>
-                                        </el-col>
-                                        <el-col :span="4">
-                                                <div class="box">
-                                                        <img src="" width="25px" style="float:left;">
-                                                        <span id="usersname" style="float:left;">用户ID</span>
-                                                        <br>
-                                                        <img src="" width="200px;">
-                                                        <p style="width:200px;">艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯
-                                                                Michelle Williams
-                                                                饰）相恋多年，彼此之间感情十分要好。安妮是一名律师，接手了生命基金会的案件，在女友的邮箱里，艾迪发现了基金会老板德雷克不为人知的秘密....
-                                                        </p>
-                                                        <ul class="communication">
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="23px"></li>
-                                                        </ul>
-                                                </div>
-                                        </el-col>
-                                        <el-col :span="4">
-                                                <div class="box">
-                                                        <img src="" width="25px" style="float:left;">
-                                                        <span id="usersname" style="float:left;">用户ID</span>
-                                                        <br>
-                                                        <img src="" width="200px;">
-                                                        <p style="width:200px;">艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯
-                                                                Michelle Williams
-                                                                饰）相恋多年，彼此之间感情十分要好。安妮是一名律师，接手了生命基金会的案件，在女友的邮箱里，艾迪发现了基金会老板德雷克不为人知的秘密....
-                                                        </p>
-                                                        <ul class="communication">
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="23px"></li>
-                                                        </ul>
-                                                </div>
-                                        </el-col>
-                                        <el-col :span="4">
-                                                <div class="box">
-                                                        <img src="" width="25px" style="float:left;">
-                                                        <span id="usersname" style="float:left;">用户ID</span>
-                                                        <br>
-                                                        <img src="" width="200px;">
-                                                        <p style="width:200px;">艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯
-                                                                Michelle Williams
-                                                                饰）相恋多年，彼此之间感情十分要好。安妮是一名律师，接手了生命基金会的案件，在女友的邮箱里，艾迪发现了基金会老板德雷克不为人知的秘密....
-                                                        </p>
-                                                        <ul class="communication">
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="25px"></li>
-                                                                <li><img src="" width="23px"></li>
-                                                        </ul>
-                                                </div>
-                                        </el-col>
-                </el-row> -->
 
 
         </div>
 </template>
 <script>
-        import IndexCommend from "@/components/IndexCommend.vue"
-        import SideBar from "@/components/SideBar.vue";
         export default {
-                components: {
-                        SideBar,
-                        IndexCommend
-                }
+                
         }
 </script>
 <style>
@@ -124,12 +41,15 @@
         }
 
         /* 电影页外面的大边框  */
-         .box {
-                border: 1px solid rgb(248, 250, 159);
-                margin-left: 0;
-                width: 100%;
-                height: 494px;
-        } 
-
-        /* 电影页内的小边框 */
+        #sidebar
+    {   
+        margin-top:80%;
+        border:2px solid gold;
+        width:50%;
+        height:500px;
+    }
+    #sidebar ul li{
+        padding: 10px 10px;
+        list-style-type: none;
+    }
 </style>

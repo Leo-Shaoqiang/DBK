@@ -110,7 +110,7 @@
         border: 1px solid rgb(248, 250, 159);
         margin-left: 0;
         width: 100%;
-        height: 400px;
+        height: 600px;
     }
     .communication
     {

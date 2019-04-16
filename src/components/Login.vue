@@ -68,13 +68,11 @@
 							validator: validateUser,
 							trigger: 'blur',
 						},
-					
 					],
 					Pass: [{
 							validator: validatePass,
 							trigger: 'blur'
 						},
-						
 					],
 				}
 			};
@@ -83,11 +81,28 @@
 			submitForm(formName) {
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
-						alert('提交登录！');
-					} else {
+						if (this.ruleForm2.User === 'admin' && this.ruleForm2.Pass === '123') {
+							this.$store.dispatch('Login',this.ruleForm2).then(()=>{
+								this.$notify({
+								type: 'success',
+								message: '欢迎你' + this.ruleForm2.User + '!',
+								duration: 3000,
+							})
+							this.$router.replace("/");
+							})
+							
+						} else {
+							this.$message({
+								type: 'error',
+								message: "用户名或密码错误",
+								showClose: true,
+							})
+						}
+					}
+					else{
 						return false;
 					}
-				});
+				})
 			},
 			resetForm(formName) {
 				this.$refs[formName].resetFields();

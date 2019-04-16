@@ -180,9 +180,10 @@
                 margin-left: 5%;
         }
         .button-place {
+                line-height: 40px;
                 float: left;
                 color: black;
-                border: 1px solid gold;
+                border: 1px;
                 width: 10%;
                 height: 40px;
                 cursor: pointer;

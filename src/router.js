@@ -2,11 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index.vue'
 
-Vue.use(Router)
-export default new Router({
+Vue.use(Router) 
+ const  router=  new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path:'*',
+      redirect:'/',
+    },
     {
       path: '/',
       name: 'home',
@@ -15,42 +19,40 @@ export default new Router({
     {
       path: '/Movie',
       name: 'Movie',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '@/components/Movie.vue')
+      component: () => import('@/components/Movie.vue')
     },
-    {
+    {                                               
       path: '/Issue',
       name: 'Issue',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '@/components/Issue.vue')
+      component: () => import('@/components/Issue.vue')
     },
     {
       path: '/Myinfo',
       name: 'Myinfo',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '@/views/Myinfo.vue')
+      component: () => import('@/views/Myinfo.vue')
     },
     {
       path: '/Login',
       name: 'Login',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '@/components/Login.vue')
+      component: () => import( '@/components/Login.vue')
     },
     {
       path: '/Register',
       name: 'Register',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '@/components/Register.vue')
+      component: () => import( '@/components/Register.vue')
     }
   ]
-})
+});
+//  router.beforeEach((to, from, next) => {
+//        if(to.path !== '/Login'){
+//          if(window.isLogin){
+//            next()
+//          }else{
+//            next('./Login?redirect= '+ to.path);
+//          }
+//        }else{
+//          next()
+//        }    
+   
+//  })
+ export default  router;

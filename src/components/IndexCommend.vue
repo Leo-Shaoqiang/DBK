@@ -103,33 +103,32 @@
         border: 3px solid yellow;
         margin-left: 10%;
         width: 80%;
-        height: 1200px;
+        height: 1200rem;
     }
     .box
     {
         border: 1px solid rgb(248, 250, 159);
         margin-left: 0;
         width: 100%;
-        height: 400px;
+        height: 400rem;
     }
     .communication
     {
         list-style-type:none;
-        position: absolute;
-        bottom:10px;
         float: left;
-        width: 200px;
+        position: absolute;
+        bottom:10rem;
+        margin-left:30rem;
     }
     .communication li
     {
         display:inline;
         cursor: pointer;
-        margin-right: 10%;
-        margin-left: 5%;
+        margin-right:20rem;
     }
     p
     {
-        font-size:15px;
+        font-size:15rem;
         margin:7% 5%;
         width:80%;
     }

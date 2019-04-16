@@ -4,16 +4,22 @@
 	<Navbar></Navbar>
 	<div class="messagecommand">
 		<div>
-			<span>相关推荐</span>
-			<div style="border:1px solid black;width:200px;height:300px;"></div>
+			<span class="commandtitle">相关推荐</span>
+			<div class="commandstyle">
+				<ul class="commandissue">
+					<li>第一篇文章</li>
+					<li>第二篇文章</li>
+					<li>第三篇文章</li>
+				</ul>
+			</div>
 		</div>
 		<div>
-			<span>我的文章</span><br>
-			<div style="border:1px solid black;width:100px;height:200px;"></div>
+			<span class="commandtitle">我的文章</span><br>
+			<div class="commandstyle"></div>
 		</div>
 		<div>
-			<span>我的草稿</span>
-			<div style="border:1px solid black;width:100px;height:150px;"></div>
+			<span class="commandtitle">我的草稿</span>
+			<div class="commandstyle"></div>
 		</div>
 	</div>
 	<div class="compile">
@@ -60,7 +66,8 @@ data() {
         },
         onEditorBlur(){}, // 失去焦点事件
         onEditorFocus(){}, // 获得焦点事件
-        onEditorChange(){}, // 内容改变事件
+		onEditorChange(){}, // 内容改变事件
+		
     },
     computed: {
         editor() {
@@ -74,6 +81,7 @@ data() {
 	{
 		float:left;
 		margin-top:20px;
+		margin-left:15px;
 	}
 	.compile
 	{
@@ -108,7 +116,31 @@ data() {
 		border-radius:3px;
 		cursor: pointer;
 	}
-
+	.commandtitle
+	{
+		padding:10px 20px;
+		background-color:orange;
+		color:white;
+		font-family:幼圆;
+		border-radius:3px;
+	}
+	.commandstyle
+	{
+		border:1px solid orange;
+		width:200px;
+		height:300px;
+		margin:25px 0px;
+	}
+	.commandissue
+	{
+		list-style-type:none;
+		margin:20px 0px 0px 10px;
+		float: left;
+	}
+	.commandissue li
+	{
+		margin-bottom:5px;
+	}
 </style>
 
 

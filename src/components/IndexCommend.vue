@@ -9,7 +9,7 @@
             <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
             <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
             <br>
-            <img src="../../src/assets/imgs/icons/head1.jpg" width="100px;" style="margin:0 25%;">
+            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
@@ -24,7 +24,7 @@
             <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
             <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
             <br>
-            <img src="../../src/assets/imgs/icons/head1.jpg" width="100px;" style="margin:0 25%;">
+            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
@@ -39,7 +39,7 @@
             <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
             <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
             <br>
-            <img src="../../src/assets/imgs/icons/head1.jpg" width="100px;" style="margin:0 25%;">
+            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
@@ -115,16 +115,17 @@
     .communication
     {
         list-style-type:none;
-        float: left;
         position: absolute;
         bottom:10px;
+        float: left;
+        width: 200px;
     }
     .communication li
     {
         display:inline;
-        margin-right:10px;
         cursor: pointer;
-        margin-left:25px;
+        margin-right: 10%;
+        margin-left: 5%;
     }
     p
     {

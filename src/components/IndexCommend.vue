@@ -1,6 +1,57 @@
 <template>
     <div class="index">
         <el-row>
+<<<<<<< HEAD
+        </el-row>
+        <el-row>
+=======
+>>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
+        <el-col :span="5">
+            <div class="box">
+            <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
+            <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
+            <br>
+            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
+            <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
+            </p>
+            <ul class="communication">
+                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
+                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
+                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
+            </ul>
+            </div>
+        </el-col>
+        <el-col :span="5">
+            <div class="box">
+            <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
+            <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
+            <br>
+            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
+            <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
+            </p>
+            <ul class="communication">
+                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
+                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
+                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
+            </ul>
+            </div>
+        </el-col>
+        <el-col :span="5">
+            <div class="box">
+            <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
+            <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
+            <br>
+            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
+            <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
+            </p>
+            <ul class="communication">
+                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
+                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
+                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
+            </ul>
+            </div>
+        </el-col>
+        <SideBar></SideBar>
         </el-row>
         <el-row>
         <el-col :span="5">
@@ -18,39 +69,7 @@
             </ul>
             </div>
         </el-col>
-        <el-col :span="5">
-            <div class="box">
-            <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
-            <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
-            <br>
-            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
-            <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
-            </p>
-            <ul class="communication">
-                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
-                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
-                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
-            </ul>
-            </div>
-        </el-col>
-        <el-col :span="5">
-            <div class="box">
-            <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
-            <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
-            <br>
-            <img src="../../src/assets/imgs/icons/head1.jpg" width="50%;" style="margin:0 25%;">
-            <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
-            </p>
-            <ul class="communication">
-                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
-                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
-                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
-            </ul>
-            </div>
-        </el-col>
-
-        </el-row> 
-        <SideBar></SideBar>
+        </el-row>
     </div>
 </template>
 <script>
@@ -94,28 +113,41 @@
 }
 </script>
 <style>
+    .el-row
+    {
+        width:100%;
+    }
     .index
     {
         margin-top: 3%;
         border: 3px solid yellow;
-        margin-left: 10%;
-        width: 80%;
-        height: 1200px;
+        margin-left: 5%;
+        width: 90%;
+        height: 1500px;
     }
     .box
     {
         border: 1px solid rgb(248, 250, 159);
         margin-left: 0;
         width: 100%;
+<<<<<<< HEAD
         height:450px;
+=======
+        height: 500px;
+>>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
     }
     .communication
     {
         list-style-type:none;
+<<<<<<< HEAD
         position: absolute;       
-        bottom:10px;
+=======
         float: left;
-        width: 200px;
+        position: absolute;
+>>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
+        bottom:10px;
+        margin-left:30px;
+        width:auto;
     }
      .communication ul{
         position: relative;
@@ -126,14 +158,19 @@
         position: relative;
         display:inline;
         cursor: pointer;
+<<<<<<< HEAD
         left: 40px;
        margin:15px 20px;
         
+=======
+        margin-right:20px;
+>>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
     }
     p
     {
         font-size:15px;
         margin:7% 5%;
         width:80%;
+        height:100%;
     }
 </style>

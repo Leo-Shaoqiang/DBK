@@ -60,7 +60,7 @@
     #footer
     {
         position:absolute;
-        bottom:0px;
+        bottom:-15%;
         background-color:papayawhip;
         width:100%;
     }

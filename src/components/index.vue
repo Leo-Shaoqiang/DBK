@@ -3,28 +3,26 @@
     <Navbar></Navbar>
     <!-- 轮播图 -->
     <div id="banner">
+      <div class="arrowleft"><img src="..\assets\imgs\icons\angle-left.png" width="50px"></div>
+      <div class="arrowright"><img src="..\assets\imgs\icons\angle-right.png" width="50px"></div>
       <div class="img-wrap">
         <ul>
           <li class="item " style="display: block;">
-            <img src="../assets/imgs/1.jpg" width="1890" height="620" alt="">
+            <img src="../assets/imgs/1.jpg" width="100%" height="500px" alt="">
           </li>
           <li class="item">
-            <img src="../assets/imgs/2.jpg" width="1890" height="620" alt="">
+            <img src="../assets/imgs/2.jpg" width="100%" height="500px" alt="">
           </li>
           <li class="item">
-            <img src="../assets/imgs/3.jpg" width="1890" height="620" alt="">
+            <img src="../assets/imgs/3.jpg" width="100%" height="500px" alt="">
           </li>
           <li class="item">
-            <img src="../assets/imgs/4.jpg" width="1890" height="620" alt="">
+            <img src="../assets/imgs/4.jpg" width="100%" height="500px" alt="">
           </li>
           <li class="item">
-            <img src="../assets/imgs/5.jpg" width="1890" height="620" alt="">
+            <img src="../assets/imgs/5.jpg" width="100%" height="500px" alt="">
           </li>
         </ul>
-      </div>
-      <div class="lr-tab">
-        <div class="left btn"></div>
-        <div class="right btn"></div>
       </div>
       <div class="tab-btn">
         <ul>
@@ -38,7 +36,7 @@
     </div>
     <!-- 首页推荐 -->
     <el-row>
-      <IndexCommend></IndexCommend>
+      <IndexCommend style="margin-top:-3%;"></IndexCommend>
       <Footer></Footer>
     </el-row>
   </div>
@@ -63,7 +61,7 @@
         $(this).addClass("active").siblings().removeClass("active");
         $(".item").eq(index).fadeIn().siblings().fadeOut();
       });
-      $(".lr-tab .right").click(function() {
+      $(".arrowright").click(function() {
         index++;
         if (index > 4) {
           index = 0;
@@ -71,7 +69,7 @@
         $(".item").eq(index).fadeIn().siblings().fadeOut();
         $(".tab-btn .btn").eq(index).addClass("active").siblings().removeClass("active");
       });
-      $(".lr-tab .left").click(function() {
+      $(".arrowleft").click(function() {
         index--;
         if (index < 0) {
           index = 4;
@@ -85,4 +83,31 @@
      
 <style>
   @import '../../static/css/tab.css';
+  #banner
+  {
+    width:98%;
+    margin-top:-1%;
+  }
+  .tab-btn
+  {
+    position:absolute;
+    left:45%;
+    bottom:15%;
+  }
+  .arrowleft
+  {
+    position:absolute;
+    top:50%;
+    z-index:6;
+    left:2%;
+    cursor: pointer;
+  }
+  .arrowright
+  {
+    position:absolute;
+    top:50%;
+    z-index:6;
+    right:2%;
+    cursor: pointer;
+  }
 </style>

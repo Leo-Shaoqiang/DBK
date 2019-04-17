@@ -51,7 +51,7 @@
                     callback(new Error('请输入密码'));
                 } else {
                     if (this.ruleForm2.checkPass !== '') {
-                        this.$refs.ruleForm2.validateField('checkPass');
+                        this.$refs.ruleForm2.validateField('Pass');
                     }
                     callback();
                 }
@@ -118,8 +118,6 @@
 
 <style>
     body {
-        width: 960px;
-        height: 800px;
         margin: auto;
     }
     /* 上面logo整体 */

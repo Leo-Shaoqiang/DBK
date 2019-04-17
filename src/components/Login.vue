@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-	<div>
+	<div class="logins">
 		<div class="nav">
 			<img class="nav-logo" src="../assets/imgs/logo.jpg" alt="">
 			<div class="nav-1">
@@ -14,16 +14,15 @@
 			</div>
 			<div class="login-split"></div>
 			<div class="login-info">
-				<el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="50px" class="demo-ruleForm2">
-					<el-form-item label="用户名" prop="User">
-						<el-input type="text" v-model="ruleForm2.User" autocomplete="off"></el-input>
+				<el-form :model="user" label-width="80px">
+					<el-form-item label="用户名">
+						<el-input v-model="user.name"></el-input>
 					</el-form-item>
-					<el-form-item label="密码" prop="Pass">
-						<el-input type="password" v-model="ruleForm2.Pass" autocomplete="off"></el-input>
+					<el-form-item label="密码">
+						<el-input v-model="user.pass" type="password"></el-input>
 					</el-form-item>
 					<el-form-item>
-						<el-button type="primary" @click="submitForm('ruleForm2')">登录</el-button>
-						<el-button @click="resetForm('ruleForm2')">重置</el-button>
+						<el-button type="primary" icon="el-icon-upload" @click="login">登录</el-button>
 					</el-form-item>
 				</el-form>
 				<div class="register">
@@ -37,86 +36,33 @@
 </template>
 <script>
 	export default {
-		data() {
-			var validateUser = (rule, value, callback) => {
-				if (value === '') {
-					callback(new Error('请输入用户名'));
-				} else {
-					if (this.ruleForm2.User !== '') {
-						this.$refs.ruleForm2.validateField('User');
-					}
-					callback();
-				}
-			};
-			var validatePass = (rule, value, callback) => {
-				if (value === '') {
-					callback(new Error('请输入密码'));
-				} else {
-					if (this.ruleForm2.Pass !== '') {
-						this.$refs.ruleForm2.validateField('Pass');
-					}
-					callback();
-				}
-			};
-			return {
-				ruleForm2: {
-					User: '',
-					Pass: '',
-				},
-				rules2: {
-					User: [{
-							validator: validateUser,
-							trigger: 'blur',
-						},
-					],
-					Pass: [{
-							validator: validatePass,
-							trigger: 'blur'
-						},
-					],
-				}
-			};
-		},
 		methods: {
-			submitForm(formName) {
-				this.$refs[formName].validate((valid) => {
-					if (valid) {
-						if (this.ruleForm2.User === 'admin' && this.ruleForm2.Pass === '12345678') {
-							this.$store.dispatch('Login',this.ruleForm2).then(()=>{
-								this.$notify({
-								type: 'success',
-								message: '欢迎你' + this.ruleForm2.User + '!',
-								duration: 3000,
-							})
-							this.$router.replace("/");
-							})
-							
-						} else {
-							this.$message({
-								type: 'error',
-								message: "用户名或密码错误",
-								showClose: true,
-							})
-						}
-					}
-					else{
-						return false;
-					}
-				})
-			},
-			resetForm(formName) {
-				this.$refs[formName].resetFields();
+			login() {
+				this.$router.replace('/')
+			}
+		},
+		data() {
+			return {
+				user: {},
+				rules: {
+					name: [{
+						required: true,
+						message: '用户名不能为空',
+						trigger: 'blur'
+					}],
+					pass: [{
+						required: true,
+						message: '密码不能为空',
+						trigger: 'blur'
+					}]
+				}
 			}
 		}
+		
 	}
 </script>
 
-<style>
-	body {
-		width: 960px;
-		height: 800px;
-		margin: auto;
-	}
+<style scoped>
 	/* 上面logo整体 */
 	.nav {
 		height: 180px;
@@ -178,5 +124,10 @@
 		position: relative;
 		left: 150px;
 		top: 20px;
+	}
+	.logins{
+		width: 980px;
+		height: 800px;
+		margin: auto;
 	}
 </style>

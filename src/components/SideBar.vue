@@ -18,29 +18,6 @@
 </script>
 
 <style>
-<<<<<<< HEAD
-    .button-hot {
-        position: relative;
-        top:0px;
-        right: -540px;
-        top:0px;
-    }
-    .hot-issues {
-        position: relative;
-        display: inline-block;
-        width: 300px;
-        height: 300px;
-         right: -410px;
-        top: 200px;
-        border: 1px solid #FF9D00;
-       border-radius: 10px;
-    }
-    .hot-issues ul li{
-        padding: 10px 10px;
-        list-style-type: none;
-    }
-    
-=======
 .button-hot
 {
     margin:5% 0;
@@ -67,5 +44,4 @@ li
     height:5%;
     margin:2% 0;
 }
->>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
 </style>

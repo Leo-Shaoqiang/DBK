@@ -116,19 +116,10 @@
   }
 </script>
      
-<style>
+<style scoped>
   /* 导航鼠标移入 */
   li.el-menu-item:hover {
     background-color: #fff !important;
-  }
-  /* logo */
-  .logo {
-    position: relative;   
-    float: left;
-  }
-  .logo>img {
-    width: 70px;
-    height: 60px;
   }
   /* 导航之间的间距 */
   .el-menu--horizontal>.el-menu-item {

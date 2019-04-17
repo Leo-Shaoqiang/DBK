@@ -81,7 +81,7 @@
   }
 </script>
      
-<style>
+<style scoped>
   @import '../../static/css/tab.css';
   #banner
   {

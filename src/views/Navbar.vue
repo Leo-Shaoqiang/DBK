@@ -1,6 +1,6 @@
 <template>
-    <div>
- <el-row>
+  <div>
+    <el-row>
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
         <el-col :span="6">
           <div class="head-logo">
@@ -10,10 +10,14 @@
           </div>
         </el-col>
         <el-col :span="1">
-          <router-link to="/"><el-menu-item index="1">首页</el-menu-item></router-link>
+          <router-link to="/">
+            <el-menu-item index="1">首页</el-menu-item>
+          </router-link>
         </el-col>
         <el-col :span="1">
-          <router-link to="/Movie"><el-menu-item index="2">电影</el-menu-item></router-link>
+          <router-link to="/Movie">
+            <el-menu-item index="2">电影</el-menu-item>
+          </router-link>
         </el-col>
         <el-col :span="1">
           <el-menu-item index="3">美食</el-menu-item>
@@ -24,25 +28,19 @@
         <el-col :span="1">
           <el-menu-item index="5">音乐</el-menu-item>
         </el-col>
-<<<<<<< HEAD
-        <el-col :span="5">
-=======
-        <el-col :span="7">
->>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
-          <el-autocomplete v-model="state2" :fetch-suggestions="querySearch" placeholder="请输入内容" :trigger-on-focus="false">
-          </el-autocomplete>
-          <el-button class="button-search">搜索</el-button>
+        <el-col :span="3">
+          <div class="search">
+             <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+            <el-button slot="append"  class="search-icon" icon="el-icon-search"></el-button>
+          </el-input>
+          </div>
+         
         </el-col>
-<<<<<<< HEAD
         <el-col :span="2">
-=======
-        <el-col :span="5">
->>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
-         <div class="login-registe">
+          <div class="login-registe">
             <span v-if="user">{{user.name}}
-                <a @click="logout()">注销</a>
-            </span>
-          
+                  <a @click="logout()">注销</a>
+              </span>
             <a href="#" @click="login()" v-else>登录</a>
             <span class="split"> | </span>
             <router-link to="/Register"><a href="#">注册</a></router-link>
@@ -50,24 +48,23 @@
         </el-col>
       </el-menu>
     </el-row>
-    </div>
-    
+  </div>
 </template>
 
 <script lang="ts">
-    export default {
-        data() {
-            return {
-                 // 菜单栏
+  export default {
+    data() {
+      return {
+        // 菜单栏
         activeIndex: "1",
         //search 
         restaurants: [],
         state1: '',
         state2: '',
-            };
-        },
+      };
+    },
     methods: {
-            //search 
+      //search 
       querySearch(queryString, cb) {
         var restaurants = this.restaurants;
         var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
@@ -94,57 +91,42 @@
           },
         ];
       },
-      login(){
+      login() {
         this.$router.replace('./Login')
       },
-      logout(){
-        this.$store.dispatch('logout').then(()=>{
+      logout() {
+        this.$store.dispatch('logout').then(() => {
           this.$router.replace('./Login');
         })
       }
     },
     computed: {
-      user(){
+      user() {
         return this.$store.state.User;
       }
     }
-    }
+  }
 </script>
 
-<style>
-  #mainpagebanner
-  {
-    height:auto;
+<style scoped>
+  #mainpagebanner {
+    height: auto;
   }
   /* 导航鼠标移入 */
   li.el-menu-item:hover {
     background-color: #fff !important;
   }
-  /* logo */
-  .logo {
-    position: relative;   
-    float: left;
-  }
-  .logo>img {
-    width: 70px;
-    height: 60px;
-  }
   /* 导航之间的间距 */
   .el-menu--horizontal>.el-menu-item {
     position: absolute;
-    margin-left: 5px !important;
+    margin-left: 25px;
+    width: 25px;
   }
   .nav-first {
-    left: 10% !important;
+    left: 10%;
   }
-  /* 搜索框 */
-  .el-input__inner {
-    position: relative;
-    margin-top: 5% !important;
-  }
-  .inline-input{
-    position: relative;
-
+  .search{
+    margin-top: 6% !important;
   }
   /* 登陆注册 */
   .login-registe {
@@ -161,14 +143,13 @@
   .split {
     color: rgb(211, 211, 208)
   }
-  /* main内边距 */
-  .el-main {
-    padding: 0 !important;
-    width: 100% !important;
-    height: 1900px !important;
-  }
+
   /* 导航下划线 */
   a:-webkit-any-link {
     text-decoration: none !important;
+  }
+ .el-input-group__append{
+   height:20px !important;
+    margin-top: 7% !important;
   }
 </style>

@@ -1,11 +1,6 @@
 <template>
     <div class="index">
         <el-row>
-<<<<<<< HEAD
-        </el-row>
-        <el-row>
-=======
->>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
         <el-col :span="5">
             <div class="box">
             <img src="../../src/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
@@ -130,21 +125,13 @@
         border: 1px solid rgb(248, 250, 159);
         margin-left: 0;
         width: 100%;
-<<<<<<< HEAD
-        height:450px;
-=======
         height: 500px;
->>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
     }
     .communication
     {
         list-style-type:none;
-<<<<<<< HEAD
-        position: absolute;       
-=======
         float: left;
         position: absolute;
->>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
         bottom:10px;
         margin-left:30px;
         width:auto;
@@ -158,13 +145,7 @@
         position: relative;
         display:inline;
         cursor: pointer;
-<<<<<<< HEAD
-        left: 40px;
-       margin:15px 20px;
-        
-=======
         margin-right:20px;
->>>>>>> 0b4fc73cd3eafd3f0705cfd8eb2671246ddf47b3
     }
     p
     {

@@ -1,14 +1,18 @@
 <template>
     <div id="footer">
         <div class="wx-code">
+            <el-col :span="2">
             <div class="wx-code-img">
                 <img src="../assets/imgs/wx.jpg" width="88" height="88" alt="wx">
                 <span>DBK订阅号</span>
             </div>
+            </el-col>
+             <el-col :span="2" :push="6">
             <div class="wx-dbk">
                 <img src="../assets/imgs/wx.png" width="88" height="88" alt="wx">
                 <span>DBK微信号</span>
             </div>
+             </el-col>
         </div>
     </div>
 </template>

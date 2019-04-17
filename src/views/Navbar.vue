@@ -24,17 +24,21 @@
         <el-col :span="2">
           <el-menu-item index="5">音乐</el-menu-item>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="5">
           <el-autocomplete v-model="state2" :fetch-suggestions="querySearch" placeholder="请输入内容" :trigger-on-focus="false">
           </el-autocomplete>
           <el-button class="button-search">搜索</el-button>
         </el-col>
-        <el-col :span="3">
+        <el-col :span="2">
          <div class="login-registe">
-              <router-link to="/Login"><a href="#">登录</a></router-link>
+            <span v-if="user">{{user.name}}
+                <a @click="logout()">注销</a>
+            </span>
+          
+            <a href="#" @click="login()" v-else>登录</a>
             <span class="split"> | </span>
             <router-link to="/Register"><a href="#">注册</a></router-link>
-          </div> 
+          </div>
         </el-col>
       </el-menu>
     </el-row>
@@ -82,6 +86,19 @@
           },
         ];
       },
+      login(){
+        this.$router.replace('./Login')
+      },
+      logout(){
+        this.$store.dispatch('logout').then(()=>{
+          this.$router.replace('./Login');
+        })
+      }
+    },
+    computed: {
+      user(){
+        return this.$store.state.User;
+      }
     }
     }
 </script>

@@ -1,7 +1,6 @@
 <template>
     <div class="index">
         <el-row>
-            <IndexCommend></IndexCommend>
         </el-row>
         <el-row>
         <el-col :span="5">
@@ -55,12 +54,10 @@
     </div>
 </template>
 <script>
-    import IndexCommend from "@/components/IndexCommend.vue"
     import SideBar from "@/components/SideBar.vue";
     export default {
     components: {
         SideBar,
-        IndexCommend
     },
     mounted() {
         var check1=0;
@@ -110,22 +107,28 @@
         border: 1px solid rgb(248, 250, 159);
         margin-left: 0;
         width: 100%;
-        height: 400px;
+        height:450px;
     }
     .communication
     {
         list-style-type:none;
-        position: absolute;
+        position: absolute;       
         bottom:10px;
         float: left;
         width: 200px;
     }
+     .communication ul{
+        position: relative;
+        margin-top: 20px;
+     }
     .communication li
     {
+        position: relative;
         display:inline;
         cursor: pointer;
-        margin-right: 10%;
-        margin-left: 5%;
+        left: 40px;
+       margin:15px 20px;
+        
     }
     p
     {

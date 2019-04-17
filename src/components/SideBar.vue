@@ -19,14 +19,11 @@
 </script>
 
 <style>
-    #sidebar
-    {   
-        position: relative;
-    }
     .button-hot {
         position: relative;
+        top:0px;
         right: -540px;
-        top: 200px;
+        top:0px;
     }
     .hot-issues {
         position: relative;
@@ -34,7 +31,7 @@
         width: 300px;
         height: 300px;
          right: -410px;
-        top: 380px;
+        top: 200px;
         border: 1px solid #FF9D00;
        border-radius: 10px;
     }

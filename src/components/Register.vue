@@ -137,7 +137,7 @@
     /* 文字 */
     .nav-1 {
         float: left;
-        margin: 120px 30px;
+        margin: 100px 30px;
         font-size: 18px;
         color: #666;
     }

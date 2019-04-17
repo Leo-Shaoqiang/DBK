@@ -81,7 +81,7 @@
 			submitForm(formName) {
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
-						if (this.ruleForm2.User === 'admin' && this.ruleForm2.Pass === '123') {
+						if (this.ruleForm2.User === 'admin' && this.ruleForm2.Pass === '12345678') {
 							this.$store.dispatch('Login',this.ruleForm2).then(()=>{
 								this.$notify({
 								type: 'success',
@@ -132,8 +132,8 @@
 	/* 文字 */
 	.nav-1 {
 		float: left;
-		margin: 120px 30px;
-		font-size: 18px;
+		margin: 100px 30px;
+		font-size: 14px;
 		color: #666;
 	}
 	/* 总体 */

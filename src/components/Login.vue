@@ -14,11 +14,11 @@
 			</div>
 			<div class="login-split"></div>
 			<div class="login-info">
-				<el-form :model="user" label-width="80px">
-					<el-form-item label="用户名">
+				<el-form ref="loginForm" :model="user" :rule="rules" status-icon label-width="80px">
+					<el-form-item label="用户名" prop="name">
 						<el-input v-model="user.name"></el-input>
 					</el-form-item>
-					<el-form-item label="密码">
+					<el-form-item label="密码" prop="pass">
 						<el-input v-model="user.pass" type="password"></el-input>
 					</el-form-item>
 					<el-form-item>
@@ -38,7 +38,28 @@
 	export default {
 		methods: {
 			login() {
-				this.$router.replace('/')
+				this.$refs.loginForm.validate((valid) => {
+					if (valid) {
+						this.axios.post('/users/validate',this.user).then((res)=>{
+							if(res.data.name == 'lsq' && res.data.pass == 123){
+							
+								this.$store.dispatch('login', this.user.name).then(() => {
+									console.log(res.data);
+									console.log(res.data.name);
+									console.log(res.data.pass);
+									
+								this.$router.replace('/');
+							})
+							}else {
+							alert("用户名或密码错误！");
+						}
+						})
+							
+						
+					} else {
+						return false;
+					}
+				})
 			}
 		},
 		data() {
@@ -58,7 +79,6 @@
 				}
 			}
 		}
-		
 	}
 </script>
 
@@ -125,7 +145,7 @@
 		left: 150px;
 		top: 20px;
 	}
-	.logins{
+	.logins {
 		width: 980px;
 		height: 800px;
 		margin: auto;

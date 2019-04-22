@@ -9,7 +9,7 @@
             </a>
           </div>
         </el-col>
-        <el-col :span="1">
+        <el-col :span="1">  
           <router-link to="/">
             <el-menu-item index="1">首页</el-menu-item>
           </router-link>
@@ -30,16 +30,18 @@
         </el-col>
         <el-col :span="3">
           <div class="search">
-             <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+             <el-input placeholder="请输入内容"  class="input-with-select">
             <el-button slot="append"  class="search-icon" icon="el-icon-search"></el-button>
           </el-input>
           </div>
          
         </el-col>
-        <el-col :span="2">
+        <el-col :span="4">
           <div class="login-registe">
-            <span v-if="user">{{user.name}}
-                  <a @click="logout()">注销</a>
+            <span v-if="user">{{user}}
+                  <a @click="logout()">注销
+                  </a>
+                
               </span>
             <a href="#" @click="login()" v-else>登录</a>
             <span class="split"> | </span>
@@ -64,33 +66,7 @@
       };
     },
     methods: {
-      //search 
-      querySearch(queryString, cb) {
-        var restaurants = this.restaurants;
-        var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
-        // 调用 callback 返回建议列表的数据
-        cb(results);
-      },
-      createFilter(queryString) {
-        return (restaurant) => {
-          return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
-        };
-      },
-      loadAll() {
-        return [{
-            "value": "三全鲜食（北新泾店）",
-            "address": "长宁区新渔路144号"
-          },
-          {
-            "value": "Hot honey 首尔炸鸡（仙霞路）",
-            "address": "上海市长宁区淞虹路661号"
-          },
-          {
-            "value": "新旺角茶餐厅",
-            "address": "上海市普陀区真北路988号创邑金沙谷6号楼113"
-          },
-        ];
-      },
+      
       login() {
         this.$router.replace('./Login')
       },
@@ -102,7 +78,8 @@
     },
     computed: {
       user() {
-        return this.$store.state.User;
+        return this.$store.state.user;
+        
       }
     }
   }

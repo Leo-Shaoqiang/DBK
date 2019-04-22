@@ -5,17 +5,23 @@ Vue.use(Vuex)
 
  const store = new Vuex.Store({
   state: {
-    User:'',
+    user:'',
   },
   mutations: {
 login (state,payload){
-  state.User += payload;
+  state.user += payload;
 },
 logout(state){
-  state.User = '';
+  state.user = '';
 }
   },
   actions: {
+    login(context,payload){
+      context.commit('login',payload)
+    },
+    logout(context){
+      context.commit('logout')
+        }
   }
 })
 export default  store;

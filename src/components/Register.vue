@@ -13,19 +13,18 @@
             </div>
             <div class="login-split"></div>
             <div class="register-info">
-                <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-                    <el-form-item label="用户名" prop="User">
-                        <el-input v-model.number="ruleForm2.User"></el-input>
+                <el-form ref="loginForm" :model="user" :rule="rules" status-icon label-width="80px">
+                    <el-form-item label="用户名" prop="name">
+                        <el-input v-model="user.name"></el-input>
                     </el-form-item>
                     <el-form-item label="密码" prop="pass">
-                        <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
+                        <el-input v-model="user.pass" type="password"></el-input>
                     </el-form-item>
-                    <el-form-item label="确认密码" prop="checkPass">
-                        <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off"></el-input>
+                    <el-form-item label="确认密码" prop="checkpass">
+                        <el-input v-model="user.checkpass" type="password"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button type="primary" @click="submitForm('ruleForm2')">注册</el-button>
-                        <el-button @click="resetForm('ruleForm2')">重置</el-button>
+                        <el-button type="primary" icon="el-icon-upload" @click="register()">注册</el-button>
                     </el-form-item>
                 </el-form>
             </div>
@@ -35,82 +34,39 @@
 
 <script>
     export default {
-        data() {
-            var validateUser = (rule, value, callback) => {
-                if (value === '') {
-                    callback(new Error('请输入用户名'));
-                } else {
-                    if (this.ruleForm2.User !== '') {
-                        this.$refs.ruleForm2.validateField('User');
-                    }
-                    callback();
-                }
-            };
-            var validatePass = (rule, value, callback) => {
-                if (value === '') {
-                    callback(new Error('请输入密码'));
-                } else {
-                    if (this.ruleForm2.checkPass !== '') {
-                        this.$refs.ruleForm2.validateField('Pass');
-                    }
-                    callback();
-                }
-            };
-            var validatePass2 = (rule, value, callback) => {
-                if (value === '') {
-                    callback(new Error('请再次输入密码'));
-                } else if (value !== this.ruleForm2.pass) {
-                    callback(new Error('两次输入密码不一致!'));
-                } else {
-                    callback();
-                }
-            };
-            return {
-                ruleForm2: {
-                    pass: '',
-                    checkPass: '',
-                    User: ''
-                },
-                rules2: {
-                    pass: [{
-                            validator: validatePass,
-                            trigger: 'blur'
-                        },
-                        {
-                            min: 8,
-                            max: 14,
-                            message: '请输入8~14位密码'
-                        }
-                    ],
-                    checkPass: [{
-                        validator: validatePass2,
-                        trigger: 'blur'
-                    }],
-                    User: [{
-                            validator: validateUser,
-                            trigger: 'blur'
-                        },
-                        {
-                            min: 2,
-                            max: 10,
-                            message: '请输入2~10位用户名'
-                        }
-                    ]
-                }
-            };
-        },
         methods: {
-            submitForm(formName) {
-                this.$refs[formName].validate((valid) => {
+            register() {
+                this.$refs.loginForm.validate((valid) => {
                     if (valid) {
-                        alert('submit!');
+                        this.axios.post('/users/register', this.user).then((res) => {
+                        console.log(this.user.name);
+                        console.log(res.data.name);
+                        
+                        
+                         console.log('aaaaaaa');
+                         
+                        })
                     } else {
                         return false;
                     }
-                });
-            },
-            resetForm(formName) {
-                this.$refs[formName].resetFields();
+                })
+            }
+        },
+        data() {
+            return {
+                user: {},
+                rules: {
+                    name: [{
+                        required: true,
+                        message: '用户名不能为空',
+                        trigger: 'blur'
+                    }],
+                    pass: [{
+                        required: true,
+                        message: '密码不能为空',
+                        trigger: 'blur'
+                    }]
+                }
             }
         }
     }

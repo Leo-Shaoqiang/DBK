@@ -41,12 +41,14 @@
 				this.$refs.loginForm.validate((valid) => {
 					if (valid) {
 						this.axios.post('/users/validate',this.user).then((res)=>{
-							if(res.data.name == 'lsq' && res.data.pass == 123){
-							
+							var  data = res.data ;
+							if(this.user.name == data.name && this.user.pass == data.pass){
+							console.log(this.user.name);
 								this.$store.dispatch('login', this.user.name).then(() => {
 									console.log(res.data);
-									console.log(res.data.name);
-									console.log(res.data.pass);
+									console.log(data.name);
+									console.log(data.pass);
+									
 									
 								this.$router.replace('/');
 							})

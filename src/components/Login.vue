@@ -45,11 +45,9 @@
 							if(this.user.name == data.name && this.user.pass == data.pass){
 							console.log(this.user.name);
 								this.$store.dispatch('login', this.user.name).then(() => {
-									console.log(res.data);
+									console.log(res.data);//数据库返回数据
 									console.log(data.name);
-									console.log(data.pass);
-									
-									
+									console.log(data.pass);									
 								this.$router.replace('/');
 							})
 							}else {

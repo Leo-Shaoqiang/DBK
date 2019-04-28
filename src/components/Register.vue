@@ -33,24 +33,22 @@
 </template>
 
 <script>
+// var  User = require('../../login server/models/user') ;
+
     export default {
         methods: {
-            register() {
+            register() { 
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
-                        this.axios.post('/users/register', this.user).then((res) => {
-                        console.log(this.user.name);
-                        console.log(res.data.name);
-                        
-                        
-                         console.log('aaaaaaa');
-                         
+                        this.axios.post('/users/register', this.user).then((res) => {                         
+                            alert('注册成功！');
+                            this.$router.replace('/Login');
                         })
                     } else {
                         return false;
                     }
                 })
-            }
+            },
         },
         data() {
             return {

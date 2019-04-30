@@ -14,7 +14,7 @@
 			</div>
 			<div class="login-split"></div>
 			<div class="login-info">
-				<el-form ref="loginForm" :model="user" :rule="rules" status-icon label-width="80px">
+				<el-form ref="loginForm" :model="user"  status-icon label-width="80px">
 					<el-form-item label="用户名" prop="name">
 						<el-input v-model="user.name"></el-input>
 					</el-form-item>
@@ -40,22 +40,31 @@
 			login() {
 				this.$refs.loginForm.validate((valid) => {
 					if (valid) {
-						this.axios.post('/users/validate',this.user).then((res)=>{
-							var  data = res.data ;
-							if(this.user.name == data.name && this.user.pass == data.pass){
-							console.log(this.user.name);
+						this.axios.post('/users/validate', this.user).then((res) => {
+							var data = res.data;
+							if (this.user.name == data.name && this.user.pass == data.pass) {
 								this.$store.dispatch('login', this.user.name).then(() => {
-									console.log(res.data);//数据库返回数据
-									console.log(data.name);
-									console.log(data.pass);									
-								this.$router.replace('/');
-							})
-							}else {
-							alert("用户名或密码错误！");
-						}
+									// console.log(res.data);//数据库返回数据
+									// console.log(data.name);
+									// console.log(data.pass);
+									if (this.user.name == undefined || this.user.pass == undefined ) {
+										this.$message({
+											type: 'error',
+											message: '用户名或密码为空！请重新输入！',
+											duration: 3000
+										})
+									} else {
+										this.$router.replace('/');
+									}
+								})
+							} else {
+								this.$message({
+									type: 'error',
+									message: '用户名或密码错误！请重新输入！',
+									duration: 3000
+								})
+							}
 						})
-							
-						
 					} else {
 						return false;
 					}
@@ -64,19 +73,10 @@
 		},
 		data() {
 			return {
-				user: {},
-				rules: {
-					name: [{
-						required: true,
-						message: '用户名不能为空',
-						trigger: 'blur'
-					}],
-					pass: [{
-						required: true,
-						message: '密码不能为空',
-						trigger: 'blur'
-					}]
-				}
+				user: {
+					name: '',
+					pass: ''
+				},
 			}
 		}
 	}

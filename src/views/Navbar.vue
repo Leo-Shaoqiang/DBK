@@ -38,10 +38,9 @@
         </el-col>
         <el-col :span="4">
           <div class="login-registe">
-            <span v-if="user">{{user}}
-                  <a @click="logout()">注销
-                  </a>
-                
+            <span v-if="user">
+              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{user}}</span></router-link>
+                  <a @click="logout()" style="cursor: pointer;" >注销</a>                
               </span>
             <a href="#" @click="login()" v-else>登录</a>
             <span class="split"> | </span>
@@ -98,6 +97,7 @@
     position: absolute;
     margin-left: 25px;
     width: 25px;
+    
   }
   .nav-first {
     left: 10%;

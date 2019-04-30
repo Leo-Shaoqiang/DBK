@@ -13,7 +13,7 @@
             </div>
             <div class="login-split"></div>
             <div class="register-info">
-                <el-form ref="loginForm" :model="user" :rule="rules" status-icon label-width="80px">
+                <el-form ref="loginForm" :model="user"  label-width="80px">
                     <el-form-item label="用户名" prop="name">
                         <el-input v-model="user.name"></el-input>
                     </el-form-item>
@@ -33,16 +33,49 @@
 </template>
 
 <script>
-// var  User = require('../../login server/models/user') ;
-
     export default {
         methods: {
-            register() { 
-                this.$refs.loginForm.validate((valid) => {
+            register() {
+                this.$refs.loginForm((valid) => {
                     if (valid) {
-                        this.axios.post('/users/register', this.user).then((res) => {                         
-                            alert('注册成功！');
-                            this.$router.replace('/Login');
+                        this.axios.post('/users/register', this.user).then((res) => {
+                            if (!res.data.name) {
+                                // 校验规则
+                                if (this.user.pass !== this.user.checkpass) {
+                                    this.$message({
+                                        type: 'error',
+                                        message: '两次密码不一致！请重新输入！',
+                                        duration: 3000
+                                    })
+                                }else if(this.user.name == ' ' || this.user.pass == ' ' || this.user.checkpass ==' '){
+                                     this.$message({
+                                    type: 'error',
+                                    message: '有一项信息为空！请重新输入！',
+                                    duration: 3000
+                                })
+                                }
+                                else if(this.user.name == undefined || this.user.pass == undefined || this.user.checkpass ==undefined){
+                                     this.$message({
+                                    type: 'error',
+                                    message: '有一项信息为空！请重新输入！',
+                                    duration: 3000
+                                })
+                                } 
+                                else {
+                                    this.$message({
+                                        type: 'success',
+                                        message: '注册成功,' + this.user.name + '!',
+                                        duration: 3000
+                                    })
+                                    this.$router.replace('/Login');
+                                }
+                            } else {
+                                this.$message({
+                                    type: 'error',
+                                    message: '用户名已存在！请重新输入！',
+                                    duration: 3000
+                                })
+                            }
                         })
                     } else {
                         return false;
@@ -53,18 +86,6 @@
         data() {
             return {
                 user: {},
-                rules: {
-                    name: [{
-                        required: true,
-                        message: '用户名不能为空',
-                        trigger: 'blur'
-                    }],
-                    pass: [{
-                        required: true,
-                        message: '密码不能为空',
-                        trigger: 'blur'
-                    }]
-                }
             }
         }
     }

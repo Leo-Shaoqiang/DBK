@@ -1,43 +1,6 @@
 <template>
   <div>
-    <el-row>
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
-        <el-col :span="7">
-          <div class="head-logo">
-            <a class="logo" title="share博客" href="#">
-              <img src="" alt="">
-            </a>
-          </div>
-        </el-col>
-        <el-col :span="2">
-          <router-link to="/"><el-menu-item index="1">首页</el-menu-item></router-link>
-        </el-col>
-        <el-col :span="2">
-          <router-link to="/Movie"><el-menu-item index="2">电影</el-menu-item></router-link>
-        </el-col>
-        <el-col :span="2">
-          <el-menu-item index="3">美食</el-menu-item>
-        </el-col>
-        <el-col :span="2">
-          <el-menu-item index="4">旅游</el-menu-item>
-        </el-col>
-        <el-col :span="2">
-          <el-menu-item index="5">音乐</el-menu-item>
-        </el-col>
-        <el-col :span="4">
-          <el-autocomplete v-model="state2" :fetch-suggestions="querySearch" placeholder="请输入内容" :trigger-on-focus="false">
-          </el-autocomplete>
-          <el-button class="button-search">搜索</el-button>
-        </el-col>
-        <el-col :span="3">
-          <div class="login-registe">
-            <a href="#">登录</a>
-            <span class="split"> | </span>
-            <a href="#">注册</a>
-          </div>
-        </el-col>
-      </el-menu>
-    </el-row>
+    <Navbar></Navbar>
     <el-row>
         <el-carousel :interval="5000" arrow="always">
           <el-carousel-item v-for="item in imgList" :key="item.id">
@@ -60,11 +23,13 @@
   
   import Classify from './Classify.vue'
   import IndexCommend from './IndexCommend'
+  import Navbar from '@/views/Navbar'
 
   export default {
     components: {
       Classify,
-      IndexCommend
+      IndexCommend,
+      Navbar,
     },
     data() {  
       return {

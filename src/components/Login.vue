@@ -1,38 +1,36 @@
 /* eslint-disable */
 <template>
 	<div class="box">
-	<div class="logins">
-		<div class="nav">
-			
-			
-		</div>
-		<div class="login">
-		<div class="nav-1">
-				<img class="nav-logo" src="../assets/imgs/logo.jpg" alt="" style="height:150px;width:270px;margin-left:30%;margin-top:0%;">
-				<p style="font-size:50px; margin-left:40%;margin-top:70%;">Share</p>
-				<h3 style=" margin-left:60%;">分享你的生活</h3>
+		<div class="logins">
+			<div class="nav">
 			</div>
-			<div class="login-split"></div>
-			<div class="login-info">
-				<el-form ref="loginForm" :model="user"  status-icon label-width="80px">
-					<el-form-item label="用户名" prop="name">
-						<el-input v-model="user.name"></el-input>
-					</el-form-item>
-					<el-form-item label="密码" prop="pass">
-						<el-input v-model="user.pass" type="password"></el-input>
-					</el-form-item>
-					<el-form-item>
-						<el-button type="primary" icon="el-icon-upload" @click="login">登录</el-button>
-					</el-form-item>
-				</el-form>
-				<div class="register">
-					<router-link to="/Register">
-						<a>还没注册?</a>
-					</router-link>
+			<div class="login">
+				<div class="nav-1">
+					<img class="nav-logo" src="../assets/imgs/logo.jpg" alt="" style="height:150px;width:270px;margin-left:30%;margin-top:0%;">
+					<p style="font-size:50px; margin-left:40%;margin-top:70%;">Share</p>
+					<h3 style=" margin-left:60%;">分享你的生活</h3>
+				</div>
+				<div class="login-split"></div>
+				<div class="login-info">
+					<el-form ref="loginForm" :model="user" status-icon label-width="80px">
+						<el-form-item label="用户名" prop="name">
+							<el-input v-model="user.name"></el-input>
+						</el-form-item>
+						<el-form-item label="密码" prop="pass">
+							<el-input v-model="user.pass" type="password"></el-input>
+						</el-form-item>
+						<el-form-item>
+							<el-button type="primary" icon="el-icon-upload" @click="login">登录</el-button>
+						</el-form-item>
+					</el-form>
+					<div class="register">
+						<router-link to="/Register">
+							<a>还没注册?</a>
+						</router-link>
+					</div>
 				</div>
 			</div>
-		</div>	
-	</div>
+		</div>
 	</div>
 </template>
 <script>
@@ -40,7 +38,7 @@
 		methods: {
 			login() {
 				// let  _this = this ;
-				this.$refs.loginForm.validate((valid) => {		
+				this.$refs.loginForm.validate((valid) => {
 					if (valid) {
 						this.axios.post('/users/validate', this.user).then((res) => {
 							var data = res.data;
@@ -49,7 +47,7 @@
 									// console.log(res);//数据库返回数据
 									// console.log(data.name);
 									// console.log(data.pass);							
-									if (this.user.name == undefined || this.user.pass == undefined ) {
+									if (this.user.name == undefined || this.user.pass == undefined) {
 										this.$message({
 											type: 'error',
 											message: '用户名或密码为空！请重新输入！',
@@ -79,9 +77,9 @@
 					name: '',
 					pass: ''
 				},
-				userToken : '',
 			}
-		}
+		},
+		
 	}
 </script>
 
@@ -110,8 +108,8 @@
 		width: 100%;
 		height: 500px;
 		margin: 0 auto;
-		background-color:white; 
-		box-shadow:0px 0px 10px 7px grey;
+		background-color: white;
+		box-shadow: 0px 0px 10px 7px grey;
 	}
 	/* 左边图片 */
 	.left-img {
@@ -153,11 +151,10 @@
 		width: 980px;
 		height: 800px;
 		margin: auto;
-		
 	}
-	.box{
-		width:100%;
-		height:1000px;
+	.box {
+		width: 100%;
+		height: 1000px;
 		background-image: url('../assets/imgs/back3.jpg');
 		background-size: 100%;
 	}

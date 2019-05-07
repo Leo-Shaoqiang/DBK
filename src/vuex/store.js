@@ -7,13 +7,14 @@ Vue.use(Vuex)
   state: {
     user:'',
     isLogin: false,
-    token: '',
+    token: '', 
   },
   mutations: {
     login (state,payload){
       state.user += payload;
       state.isLogin = true;         
       sessionStorage.setItem('userName',state.user); 
+      state.token = state.user;
     },
     logout(state){
       state.user = '';

@@ -24,7 +24,10 @@ Vue.use(Router)
     {                                               
       path: '/Issue',
       name: 'Issue',
-      component: () => import('@/components/Issue.vue')
+      component: () => import('@/components/Issue.vue'),
+      meta:{
+        requireAuth : true,
+      }
     },
     {
       path: '/Myinfo',
@@ -43,16 +46,20 @@ Vue.use(Router)
     }
   ]
 });
-//  router.beforeEach((to, from, next) => {
-//        if(to.path !== '/Login'){
-//          if(window.isLogin){
-//            next()
-//          }else{
-//            next('./Login?redirect= '+ to.path);
-//          }
-//        }else{
-//          next()
-//        }    
-   
-//  })
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requireAuth)){  // 判断该路由是否需要登录权限
+    if (sessionStorage.getItem('userName')) {  // 判断当前的token是否存在
+      next();
+    }
+    else {
+      next({
+        path: '/login',
+        query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+      })
+    }
+  }
+  else {
+    next();
+  }
+});
  export default  router;

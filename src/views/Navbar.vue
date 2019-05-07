@@ -38,15 +38,20 @@
         </el-col>
         <el-col :span="4">
           <div class="login-registe">
-            <span v-if="user">
-              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{user}}</span></router-link>
+            <span v-if="userName">
+              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{userName}}</span></router-link>
                   <a @click="logout()" style="cursor: pointer;" >注销</a>                
               </span>
             <a href="#" @click="login()" v-else>登录</a>
             <span class="split"> | </span>
             <router-link to="/Register"><a href="#">注册</a></router-link>
           </div>
+         
         </el-col>
+        <div>
+            <router-link class="publish-a" to="/Issue"> <span class="publish">发表文章</span></router-link>
+        </div>
+       
       </el-menu>
     </el-row>
   </div>
@@ -78,7 +83,9 @@
     computed: {
       user() {
         return this.$store.state.user;
-        
+      },
+      userName(){
+        return sessionStorage.getItem('userName');
       }
     }
   }
@@ -128,5 +135,11 @@
  .el-input-group__append{
    height:20px !important;
     margin-top: 7% !important;
+  }
+  /* 发表文章 */
+  .publish{
+    position: relative;
+    top: 20px;
+    right: 200px;
   }
 </style>

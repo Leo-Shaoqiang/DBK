@@ -31,22 +31,23 @@
 					</router-link>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
 </template>
 <script>
 	export default {
 		methods: {
 			login() {
-				this.$refs.loginForm.validate((valid) => {
+				// let  _this = this ;
+				this.$refs.loginForm.validate((valid) => {		
 					if (valid) {
 						this.axios.post('/users/validate', this.user).then((res) => {
 							var data = res.data;
 							if (this.user.name == data.name && this.user.pass == data.pass) {
 								this.$store.dispatch('login', this.user.name).then(() => {
-									// console.log(res.data);//数据库返回数据
+									// console.log(res);//数据库返回数据
 									// console.log(data.name);
-									// console.log(data.pass);
+									// console.log(data.pass);							
 									if (this.user.name == undefined || this.user.pass == undefined ) {
 										this.$message({
 											type: 'error',
@@ -77,6 +78,7 @@
 					name: '',
 					pass: ''
 				},
+				userToken : '',
 			}
 		}
 	}

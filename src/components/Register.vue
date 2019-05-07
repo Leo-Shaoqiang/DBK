@@ -36,7 +36,7 @@
     export default {
         methods: {
             register() {
-                this.$refs.loginForm((valid) => {
+                this.$refs.loginForm.validate((valid) => {
                     if (valid) {
                         this.axios.post('/users/register', this.user).then((res) => {
                             if (!res.data.name) {

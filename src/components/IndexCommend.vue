@@ -10,9 +10,9 @@
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
-                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
-                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
-                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
+                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="40px"><img src="../../src/assets/imgs/icons/bonus2.png" width="40px" style="display:none;"></li>
+                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="40px"><img src="../../src/assets/imgs/icons/star2.png" width="40px" style="display:none;"></li>
+                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="38px"></li>
             </ul>
             </div>
         </el-col>
@@ -25,9 +25,9 @@
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
-                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
-                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
-                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
+                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="40px"><img src="../../src/assets/imgs/icons/bonus2.png" width="40px" style="display:none;"></li>
+                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="40px"><img src="../../src/assets/imgs/icons/star2.png" width="40px" style="display:none;"></li>
+                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="38px"></li>
             </ul>
             </div>
         </el-col>
@@ -40,9 +40,9 @@
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
-                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
-                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
-                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
+                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="40px"><img src="../../src/assets/imgs/icons/bonus2.png" width="40px" style="display:none;"></li>
+                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="40px"><img src="../../src/assets/imgs/icons/star2.png" width="40px" style="display:none;"></li>
+                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="38px"></li>
             </ul>
             </div>
         </el-col>
@@ -58,9 +58,9 @@
             <p>艾迪（汤姆·哈迪 Tom Hardy 饰）是一位深受观众喜爱的新闻记者，和女友安妮（米歇尔·威廉姆斯Michelle Williams饰）相恋多年，彼此之间感情十分要好。
             </p>
             <ul class="communication">
-                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="25px"><img src="../../src/assets/imgs/icons/bonus2.png" width="25px" style="display:none;"></li>
-                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="25px"><img src="../../src/assets/imgs/icons/star2.png" width="25px" style="display:none;"></li>
-                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="23px"></li>
+                <li class="bonus"><img src="../../src/assets/imgs/icons/bonus1.png" width="40px"><img src="../../src/assets/imgs/icons/bonus2.png" width="40px" style="display:none;"></li>
+                <li class="star"><img src="../../src/assets/imgs/icons/star1.png" width="40px"><img src="../../src/assets/imgs/icons/star2.png" width="40px" style="display:none;"></li>
+                <li class="share"><img src="../../src/assets/imgs/icons/share.png" width="38px"></li>
             </ul>
             </div>
         </el-col>
@@ -133,25 +133,29 @@
         float: left;
         position: absolute;
         bottom:10px;
-        margin-left:30px;
-        width:auto;
+        width:300px;
     }
      .communication ul{
         position: relative;
         margin-top: 20px;
+        float: left;
+        
      }
     .communication li
     {
-        position: relative;
         display:inline;
         cursor: pointer;
-        margin-right:20px;
+        margin-right:10%;
     }
     p
     {
-        font-size:15px;
+        font-size:18px;
         margin:7% 5%;
         width:80%;
         height:100%;
+    }
+    #usersname
+    {
+        font-size:20px;
     }
 </style>

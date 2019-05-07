@@ -9,26 +9,26 @@
             </a>
           </div>
         </el-col>
-        <el-col :span="1">  
+        <el-col :span="2">  
           <router-link to="/">
             <el-menu-item index="1">首页</el-menu-item>
           </router-link>
         </el-col>
-        <el-col :span="1">
+        <el-col :span="2">
           <router-link to="/Movie">
             <el-menu-item index="2">电影</el-menu-item>
           </router-link>
         </el-col>
-        <el-col :span="1">
+        <el-col :span="2">
           <el-menu-item index="3">美食</el-menu-item>
         </el-col>
-        <el-col :span="1">
+        <el-col :span="2">
           <el-menu-item index="4">旅游</el-menu-item>
         </el-col>
-        <el-col :span="1">
+        <el-col :span="2">
           <el-menu-item index="5">音乐</el-menu-item>
         </el-col>
-        <el-col :span="3">
+        <el-col :span="5">
           <div class="search">
              <el-input placeholder="请输入内容"  class="input-with-select">
             <el-button slot="append"  class="search-icon" icon="el-icon-search"></el-button>
@@ -36,7 +36,7 @@
           </div>
          
         </el-col>
-        <el-col :span="4">
+        <el-col :span="5">
           <div class="login-registe">
             <span v-if="userName">
               <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{userName}}</span></router-link>
@@ -92,6 +92,14 @@
 </script>
 
 <style scoped>
+.el-input
+{
+  font-size:20px;
+}
+li
+{
+  font-size:20px;
+}
   #mainpagebanner {
     height: auto;
   }
@@ -110,14 +118,17 @@
     left: 10%;
   }
   .search{
-    margin-top: 6% !important;
+    margin-top: 4% !important;
+    position: relative;
+    left:130px;
   }
   /* 登陆注册 */
   .login-registe {
     display: inline-block;
     position: relative;
     top: 20px;
-    margin-left: 50px;
+    left:330px;
+    font-size:20px;
   }
   .login-registe>a {
     text-decoration: none;

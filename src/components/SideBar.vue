@@ -21,12 +21,13 @@
 .button-hot
 {
     margin:5% 0;
+    font-size:20px;
 }
 #sidebar
 {
-    width:30%;
+    width:25%;
     float: right;
-    margin-right: 5%;
+    margin-right: 7%;
     height:400px;
 }
 .hot-issues
@@ -34,6 +35,7 @@
     border:1px solid orange;
     height:100%;
     width:100%;
+    font-size:20px;
 }
 ul
 {

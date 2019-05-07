@@ -1,16 +1,16 @@
 /* eslint-disable */
 <template>
+	<div class="box">
 	<div class="logins">
 		<div class="nav">
-			<img class="nav-logo" src="../assets/imgs/logo.jpg" alt="">
-			<div class="nav-1">
-				<p>Share</p>
-				<p>分享你的生活</p>
-			</div>
+			
+			
 		</div>
 		<div class="login">
-			<div class="left-img">
-				<img src="../assets/imgs/logo.jpg" alt="" width="280px" height="260px" />
+		<div class="nav-1">
+				<img class="nav-logo" src="../assets/imgs/logo.jpg" alt="" style="height:150px;width:270px;margin-left:30%;margin-top:0%;">
+				<p style="font-size:50px; margin-left:40%;margin-top:70%;">Share</p>
+				<h3 style=" margin-left:60%;">分享你的生活</h3>
 			</div>
 			<div class="login-split"></div>
 			<div class="login-info">
@@ -32,6 +32,7 @@
 				</div>
 			</div>
 		</div>	
+	</div>
 	</div>
 </template>
 <script>
@@ -109,7 +110,8 @@
 		width: 100%;
 		height: 500px;
 		margin: 0 auto;
-		background: papayawhip;
+		background-color:white; 
+		box-shadow:0px 0px 10px 7px grey;
 	}
 	/* 左边图片 */
 	.left-img {
@@ -151,5 +153,12 @@
 		width: 980px;
 		height: 800px;
 		margin: auto;
+		
+	}
+	.box{
+		width:100%;
+		height:1000px;
+		background-image: url('../assets/imgs/back3.jpg');
+		background-size: 100%;
 	}
 </style>

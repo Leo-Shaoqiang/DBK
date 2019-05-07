@@ -1,16 +1,16 @@
 <template>
-    <div>
+    <div class="box">
+        
         <div class="nav">
-            <img class="nav-logo" src="../assets/imgs/logo.jpg" alt="">
-            <div class="nav-1">
-                <p>Share</p>
-                <p>分享你的生活</p>
-            </div>
+            
         </div>
         <div class="login">
-            <div class="left-img">
-                <img src="../assets/imgs/logo.jpg" alt="" width="280px" height="260px" />
-            </div>
+                <div class="nav-1">
+                <img class="nav-logo" src="../assets/imgs/logo.jpg" alt="" style="height:150px;width:270px;margin-left:30%;margin-top:0%;">
+                
+                        <p style="font-size:50px; margin-left:40%;margin-top:70%;">Share</p>
+                        <h4 style=" margin-left:60%;">分享你的生活</h4>
+                </div>
             <div class="login-split"></div>
             <div class="register-info">
                 <el-form ref="loginForm" :model="user"  label-width="80px">
@@ -111,15 +111,16 @@
     .nav-1 {
         float: left;
         margin: 100px 30px;
-        font-size: 18px;
+        font-size: 16px;
         color: #666;
     }
     /* 总体 */
     .login {
-        width: 100%;
+        width: 980px;
         height: 500px;
         margin: 0 auto;
-        background: papayawhip;
+        background-color:white; 
+		box-shadow:0px 0px 10px 7px grey;
     }
     /* 左边图片 */
     .left-img {
@@ -158,4 +159,10 @@
         left: 150px;
         top: 20px;
     }
+    .box{
+		width:100%;
+		height:1000px;
+		background-image: url('../assets/imgs/back3.jpg');
+		background-size: 100%;
+	}
 </style>

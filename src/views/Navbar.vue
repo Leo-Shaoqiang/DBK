@@ -2,7 +2,7 @@
   <div>
     <el-row>
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
-        <el-col :span="6">
+        <el-col :span="4">
           <div class="head-logo">
             <a class="logo" title="share博客" href="#">
               <img src="" alt="">
@@ -28,15 +28,21 @@
         <el-col :span="2">
           <el-menu-item index="5">音乐</el-menu-item>
         </el-col>
-        <el-col :span="5">
+        <el-col :span="2">
+            <div>
+                <router-link class="publish-a" to="/Issue"> <span class="publish"> <el-menu-item index="5">写博客</el-menu-item></span></router-link>
+            </div>
+        </el-col>
+        <el-col :span="2">
           <div class="search">
-             <el-input placeholder="请输入内容"  class="input-with-select">
+             <el-input placeholder="请输入内容"  class="input-with-select" style="width:300px;">
             <el-button slot="append"  class="search-icon" icon="el-icon-search"></el-button>
           </el-input>
           </div>
          
         </el-col>
-        <el-col :span="5">
+        
+        <el-col :span="2">
           <div class="login-registe">
             <span v-if="userName">
               <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{userName}}</span></router-link>
@@ -48,9 +54,7 @@
           </div>
          
         </el-col>
-        <div>
-            <router-link class="publish-a" to="/Issue"> <span class="publish">发表文章</span></router-link>
-        </div>
+       
        
       </el-menu>
     </el-row>
@@ -148,9 +152,5 @@ li
     margin-top: 7% !important;
   }
   /* 发表文章 */
-  .publish{
-    position: relative;
-    top: 20px;
-    right: 200px;
-  }
+ 
 </style>

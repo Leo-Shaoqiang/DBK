@@ -7,6 +7,12 @@
             <li>流浪地球</li>
             <li>爱乐之城</li>  
             <li>白蛇.缘起</li> 
+            <li>魔术大师的自行车</li> 
+            <li>等我们在一起的时候</li> 
+            <li>后看来得我们</li> 
+            <li>小幸运</li> 
+            <li>白色巨塔</li>
+             <li>非自然死亡</li> 
             </ul>
         </div>
     </div>
@@ -20,12 +26,12 @@
 <style>
 .button-hot
 {
-    margin:5% 0;
+    margin:0;
     font-size:20px;
 }
 #sidebar
 {
-    width:25%;
+    width:350px;
     float: right;
     margin-right: 7%;
     height:400px;
@@ -33,7 +39,7 @@
 .hot-issues
 {
     border:1px solid orange;
-    height:100%;
+    height:700px;
     width:100%;
     font-size:20px;
 }

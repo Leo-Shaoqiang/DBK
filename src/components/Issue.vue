@@ -24,8 +24,8 @@
 	</div>
 	<div class="compile">
 		<form>
-		<input type="text" placeholder="请输入标题" class="inputstyle"><br>
-		<input type="text" placeholder="请输入标签" class="inputstyle"><br>
+		<input type="text" placeholder="请输入标题" class="inputstyle">
+		<input type="text" placeholder="请输入标签" class="inputstyle" style="margin-left:5%;"><br>
 		<div class="edit_container">
         <quill-editor 
             v-model="content" 
@@ -88,14 +88,15 @@ data() {
 		float: right;
 		margin-top: 20px;
 		margin-right:10%;
-		width:800px;
+		width:70%;
 	}
 	.inputstyle
 	{
-		width:800px;
+		display: inline-block;
+		width:500px;
 		margin-bottom:25px;
 		height:30px;
-		border-radius:3px;
+		border-radius:10px;
 		border: solid 1px gray;
 	}
 	textarea

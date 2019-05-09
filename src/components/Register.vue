@@ -39,6 +39,7 @@
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
                         this.axios.post('/users/register', this.user).then((res) => {
+                            
                             if (!res.data.name) {
                                 // 校验规则
                                 if (this.user.pass !== this.user.checkpass) {

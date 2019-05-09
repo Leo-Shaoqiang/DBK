@@ -1,5 +1,7 @@
 /* eslint-disable */
 <template>
+<div>
+<Navbar></Navbar>
 	<div class="box">
 	<div class="logins">
 		<div class="nav">
@@ -34,9 +36,14 @@
 		</div>	
 	</div>
 	</div>
+	</div>
 </template>
 <script>
+import Navbar from '@/views/Navbar.vue';
 	export default {
+		components: {
+      Navbar,
+		},
 		methods: {
 			login() {
 				// let  _this = this ;

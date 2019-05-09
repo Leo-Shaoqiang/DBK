@@ -1,4 +1,6 @@
 <template>
+<div>
+<Navbar></Navbar>
     <div class="box">
         
         <div class="nav">
@@ -30,10 +32,15 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
+import Navbar from '@/views/Navbar.vue';
     export default {
+        components: {
+      Navbar,
+		},
         methods: {
             register() {
                 this.$refs.loginForm.validate((valid) => {

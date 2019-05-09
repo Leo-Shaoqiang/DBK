@@ -65,7 +65,8 @@ router.route('/issue').post((req, res) => {
           if(err){console.log(err);}
           console.log(blog)
            res.json(blog ? blog:{});
-     })
+     
+
      if(req.body.title==''||req.body.content==''||req.body.tag=='')
      {
           return false
@@ -84,5 +85,6 @@ router.route('/issue').post((req, res) => {
                }
            
      })
+})
 
 module.exports = router

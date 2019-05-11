@@ -10,11 +10,12 @@
           </el-carousel-item>
         </el-carousel>
       </el-row>
+      
     <Classify></Classify>
-    
+    <el-row>
     <IndexCommend></IndexCommend>
     
-
+      </el-row>
        
   </div>
   </template>

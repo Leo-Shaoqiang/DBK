@@ -1,4 +1,6 @@
 <template>
+<div>
+<Navbar></Navbar>
     <div class="box">
         
         <div class="nav">
@@ -30,15 +32,21 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
+import Navbar from '@/views/Navbar.vue';
     export default {
+        components: {
+      Navbar,
+		},
         methods: {
             register() {
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
                         this.axios.post('/users/register', this.user).then((res) => {
+                            
                             if (!res.data.name) {
                                 // 校验规则
                                 if (this.user.pass !== this.user.checkpass) {

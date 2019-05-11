@@ -30,7 +30,7 @@
         </el-col>
         <el-col :span="2">
             <div>
-                <router-link class="publish-a" to="/Issue"> <span class="publish"> <el-menu-item index="5">写博客</el-menu-item></span></router-link>
+                <router-link class="publish-a" to="/Issue"> <span class="publish"> <el-menu-item index="6">写博客</el-menu-item></span></router-link>
             </div>
         </el-col>
         <el-col :span="2">

@@ -7,4 +7,6 @@ var userSchema = new mongoose.Schema({
     time : String
 })
 
+
+
 module.exports = mongoose.model('User',userSchema);

@@ -55,7 +55,7 @@
 										})
 									} else {
 										this.$router.replace('/');
-									}
+									}	
 								})
 							} else {
 								this.$message({

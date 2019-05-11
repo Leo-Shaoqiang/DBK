@@ -20,16 +20,15 @@
   </template>
 
 <script>
-  
+   import Navbar from '@/views/Navbar.vue';
   import Classify from './Classify.vue'
   import IndexCommend from './IndexCommend'
-  import Navbar from '@/views/Navbar'
 
   export default {
     components: {
+      Navbar,
       Classify,
       IndexCommend,
-      Navbar,
     },
     data() {  
       return {

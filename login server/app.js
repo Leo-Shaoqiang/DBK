@@ -5,7 +5,7 @@ const  bodyParser = require('body-parser')
 var router = require('./router/users');
 const url = "mongodb://localhost:27017/blog"
 
-mongoose.connect(url,(err)=>{
+mongoose.connect(url,{useNewUrlParser:true},(err)=>{
     if(err)console.log(err);
     console.log('db connect success');
 })

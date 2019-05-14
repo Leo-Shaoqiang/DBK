@@ -48,23 +48,40 @@ var Blog =  require('../models/blog')
      }
      })
 })
-
-router.route('/').post((req, res) => {
+// 首页数据
+router.route('/').get((req, res) => {
+     const { page } = req.query;  
      Blog.find({},(err,blog)=>{
           if(err){console.log(err);}
-          console.log(blog)
-           res.json(blog ? blog:{});
-     })
+          res.json(blog ?blog:{});  //数据转化为json  然后可在前端使用   
+     }).sort({ _id : -1 }).limit(3).skip((page-1)*3);
      
-    
 })
-
+router.route('/list').get(async (req,res)=>{
+     const { page } = req.query;
+     try {
+          const total = await  Blog.find().countDocuments();
+         const lists =  await Blog
+          .find({})
+          .skip((page - 1) * 3)
+          .limit(3)      
+          res.json({ok : 1, data: {lists , pagination : {total,page}}})
+     } catch (error) {
+          console.log(error);
+          
+     }
+     });
+   
+   
+// 发表页面
 router.route('/issue').post((req, res) => {
     
      Blog.find({},(err,blog)=>{
           if(err){console.log(err);}
           console.log(blog)
            res.json(blog ? blog:{});
+           var times = new Date();
+           var time = times.getFullYear() + "-" + (times.getMonth() + 1) + "-" + times.getDate() + " " + times.getHours() + ":" + times.getMinutes() + ":" + times.getSeconds();
      
 
      if(req.body.title==''||req.body.content==''||req.body.tag=='')
@@ -76,6 +93,7 @@ router.route('/issue').post((req, res) => {
                           title: req.body.title,
                           tag: req.body.tag,
                           content: req.body.content,
+                          time : time
                     });
                     blogs.save((err, res) => {
                          if (err) console.log(err);

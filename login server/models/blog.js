@@ -6,6 +6,7 @@ var blogSchema=new mongoose.Schema({
     title:String,
     tag:String,
     content:String,
+    time : String
 })
 
 

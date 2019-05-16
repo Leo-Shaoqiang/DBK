@@ -6,16 +6,12 @@
 			<div>
 				<span class="commandtitle">相关推荐</span>
 				<div class="commandstyle">
-					<ul v-for="item in list">
-						<li><a href="/">{{item.title}}</a></li>
-						
+					<ul class="commandissue" v-for="item in list">
+						<li><a href="http://localhost:8080/">{{item.title}}</a></li>
 					</ul>
 				</div>
 			</div>
-			<div>
-				<span class="commandtitle">我的文章</span><br>
-				<div class="commandstyle"></div>
-			</div>
+			
 			
 		</div>
 		<div class="compile">
@@ -51,6 +47,11 @@
 	import 'quill/dist/quill.snow.css';
 	import 'quill/dist/quill.bubble.css';
 	export default {
+		mounted(){
+				this.axios.post('/users/issue', this.blog).then((res) => {
+							this.list = res.data;
+							console.log(res.data)
+			})},
 		components: {
 			Navbar,
 			quillEditor
@@ -62,22 +63,17 @@
 				blog: {
 					title: '',
 					tag: '',
-					content: '',
-					
+					content: ''
 				},
 				list:[]
 			}
 		},
-		mounted(){
-			this.axios.post('/users/issue', this.blog).then((res) => {
-                            this.list=res.data
-                            console.log(this.list)
-                        })
-		},
 		methods: {
+			
 			submit() {
 				
 						this.axios.post('/users/issue', this.blog).then((res) => {
+							
 							if(this.blog.tag==''||this.blog.title==''||this.blog.content=='')
 							{
 
@@ -173,10 +169,14 @@
 	.commandstyle {
 		border: 1px solid orange;
 		width: 200px;
-		height: 300px;
+		height: 1000px;
 		margin: 25px 0px;
 	}
 
+	.commandissue {
+		list-style-type: none;
+		
+	}
 
 	.commandissue li {
 		margin-bottom: 5px;

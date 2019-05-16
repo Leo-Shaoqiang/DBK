@@ -1,27 +1,46 @@
 <template>
     <div>
+       <el-row> 
+           <el-col :span="2" :offset="2"><div class="tag-hot">热门博客</div></el-col>
+           <el-col :span="2"><el-dropdown :hide-on-click="false" style="margin-top:30px;">
+                <span class="el-dropdown-link">
+                  筛选<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>时间</el-dropdown-item>
+                  <el-dropdown-item>内容</el-dropdown-item>
+                  <el-dropdown-item>人物</el-dropdown-item>
+                  <el-dropdown-item>事件</el-dropdown-item>
+                 
+                </el-dropdown-menu>
+              </el-dropdown></el-col>
+        <el-col :span="6" :offset="9"><div class="tag-write"><el-button type="warning" class="el-icon-edit" style="margin-top:20px;" @click="write">写博客</el-button></div></el-col>
+       </el-row>
         <div class="index">
             <ul v-for="item in lists" :key="item._id">
                 <li>
                     <div class="back">
                         <el-row>
                             <el-row>
-                                <el-col :span="20" style="margin-left:5%;">
+                                <el-col :span="4" style="margin-left:5%;padding-top:2%;">
                                     <img src="@/assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
                                     <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
                                 </el-col>
+                                <el-col :span="6" style="padding-top:2%;">
+                                        
+                                                <h1>{{item.title}}</h1>
+                                                <h3>{{item.tag}}</h3>
+                                            
+                                    </el-col>
                             </el-row>
                             <el-row style="margin-top:2%;margin-bottom:2%;">
                                 <el-col :span="6" style="margin-left:2%;">
                                     <div class="box-img">
-                                        图片
+                                        <img src="@/assets/imgs/jay.jpg" style="width:300px;height:200px">
                                     </div>
                                 </el-col>
                                 <el-col :span="16">
-                                    <div class="title">
-                                        <h1>{{item.title}}</h1>
-                                        <h3 style="float:left">{{item.tag}}</h3>
-                                    </div>
+                                    
                                     <div class="box-content">
                                         <h5 v-html="item.content"> </h5>
                                     </div>
@@ -45,13 +64,19 @@
             :total="total" :page-size = "3" >
             </el-pagination>
         </div>
+        
         <div class="sidebar">
             <SideBar></SideBar>
         </div>
+        <div class="littlechart">
+            <Littlechart></Littlechart>
+            </div>
     </div>
 </template>
 <script>
+    import $ from 'jquery';
     import SideBar from "@/components/SideBar.vue";
+    import Littlechart from "@/components/Littlechart.vue";
     $(document).ready(function() {
         var check1 = 0;
         var check2 = 0;
@@ -92,11 +117,15 @@
         },
         components: {
             SideBar,
+            Littlechart
         },
         created () {
             this.getData();
         },
         methods: {
+            write(){
+                this.$router.replace('/issue');
+            },
             currentChange(page){
                 this.page = page;
                 this.getData();
@@ -122,11 +151,29 @@
     }
 </script>
 <style>
-    .title {
-        border: 1px;
-        float: left;
-        margin-left: 5%;
+    .el-dropdown-link {
+    cursor: pointer;
+    color: goldenrod;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+    .tag-write{
+        width:150px;
+
+       
     }
+    .tag-hot{
+        border:1px;
+        margin-top:5%;
+        color:goldenrod;
+        width:200px;
+        height:60px;
+        font-size:40px;
+        margin-left:5%;
+        
+    }
+    
     .back {
         border: 1px;
     }
@@ -135,46 +182,47 @@
     }
     .box-content {
         border: 1px;
-        border-top: 1px solid grey;
-        margin-top: 10%;
+        border-top: 1px solid rgb(247, 250, 99);
+        overflow: hidden;
         margin-left: 5%;
     }
     .sidebar {
         position: absolute;
-        top: 100px;
-        left: 70%;
+        top: -30px;
+        left: 75%;
         border: 1px;
-        margin-left: 5%;
+        margin-left: 1%;
     }
     .box-img {
         border: 1px solid black;
-        width: 200px;
-        height: 300px;
+        width:300px;
+        height: 200px;
     }
     .index {
-        margin-top: 3%;
-        border: 3px solid yellow;
-        margin-left: 5%;
+       
+        border: 3px;
+        border-top:2px solid goldenrod;
+        margin-left: 10%;
         width: 60%;
-        height: 1500px;
+        height: 1400px;
     }
     .box {
-        border: 1px solid rgb(248, 250, 159);
+        border: 1px solid #f7fa63;
         margin-left: 0;
         width: 100%;
         height: 300px;
     }
     .communication {
         list-style-type: none;
-        float: left;
         position: absolute;
         bottom: 10px;
-        width: 300px;
+        width: 200px;
+        left:80%;
     }
     .communication ul {
         position: relative;
-        margin-top: 20px;
-        float: left;
+       
+        float: right;
     }
     .communication li {
         display: inline;
@@ -189,5 +237,13 @@
     }
     #usersname {
         font-size: 20px;
+    }
+    .littlechart{
+        border:1px;
+        width:350px;
+        height:300px;
+        position: absolute;
+        left:75%;
+        top:600px;
     }
 </style>

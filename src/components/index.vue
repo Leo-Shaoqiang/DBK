@@ -35,7 +35,9 @@
       </div>
     </div>
     <!-- 首页推荐 -->
+    <Tagsoon style="margin-bottom:5%;"></Tagsoon>
     <el-row>
+      
       <IndexCommend style="margin-top:-3%;"></IndexCommend>
       <Footer></Footer>
     </el-row>
@@ -43,6 +45,7 @@
 </template>
 
 <script>
+import Tagsoon from './Tagsoon.vue'
   import $ from 'jquery';
   import IndexCommend from './IndexCommend.vue';
   import Footer from './Footer.vue';
@@ -52,9 +55,11 @@
       IndexCommend,
       Footer,
       Navbar,
+      Tagsoon
     },
     mounted() {
       // 轮播图
+      
       var index = 0;
       $(".tab-btn .btn").click(function() {
         index = $(this).index();

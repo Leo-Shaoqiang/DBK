@@ -34,12 +34,12 @@
     width:350px;
     float: right;
     margin-right: 7%;
-    height:400px;
+    height:300px;
 }
 .hot-issues
 {
     border:1px solid orange;
-    height:700px;
+    height:500px;
     width:100%;
     font-size:20px;
 }

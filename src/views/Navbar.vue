@@ -2,13 +2,6 @@
   <div>
     <el-row>
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
-        <el-col :span="4">
-          <div class="head-logo">
-            <a class="logo" title="share博客" href="#">
-              <img src="" alt="">
-            </a>
-          </div>
-        </el-col>
         <el-col :span="2">  
           <router-link to="/">
             <el-menu-item index="1">首页</el-menu-item>
@@ -122,7 +115,7 @@ li
     left: 10%;
   }
   .search{
-    margin-top: 4% !important;
+    margin-top: 7% !important;
     position: relative;
     left:130px;
   }
@@ -130,7 +123,7 @@ li
   .login-registe {
     display: inline-block;
     position: relative;
-    top: 20px;
+    top: 15px;
     left:330px;
     font-size:20px;
   }

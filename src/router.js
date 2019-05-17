@@ -43,6 +43,29 @@ Vue.use(Router)
       path: '/Register',
       name: 'Register',
       component: () => import( '@/components/Register.vue')
+    },
+    {
+      path: '/ContentInfo',
+      name: 'ContentInfo',
+      component: () => import( '@/components/ContentInfo.vue')
+    },
+    // 515
+    {
+      path: '/Detail',
+      name: 'Detail',
+      path:'/Detail/:id',
+      component: () => import( '@/components/Detail.vue')
+    },
+    {
+      path: '/Goods',
+      name: 'Goods',
+      path:'/Goods',
+      component: () => import( '@/components/Goods.vue'),
+      children :[
+        {path : 'Security',name:'Security',component: () => import( '@/components/qiantao/Security.vue')},
+        {path : 'Address',name:'Address',component: () => import( '@/components/qiantao/Address.vue')},
+        {path : 'Order',name:'Order',component: () => import( '@/components/qiantao/Order.vue')}
+      ]
     }
   ]
 });

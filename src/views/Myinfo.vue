@@ -2,17 +2,17 @@
     <div>
         <Navbar></Navbar>
         <div class="info">
-        <div class="info-img">
-            <img src="@/assets/imgs/a2.png" alt="用户头像">
+            <div class="info-img">
+                <img src="@/assets/imgs/a2.png" alt="用户头像">
+            </div>
+            <span>{{ userName }}</span>
+            <div class="info-follows">
+                <span>关注<a href="">66</a></span>
+                <span>|</span>
+                <span>粉丝<a href="">88</a></span><br/>
+                <span class="info-notes">个性签名:不要在最该奋斗的年纪选择安逸</span>
+            </div>
         </div>
-         <span>廖绍强</span>
-         <div class="info-follows">
-             <span>关注<a href="">66</a></span>
-             <span>|</span>
-             <span>粉丝<a href="">88</a></span><br/>
-             <span class="info-notes">个性签名:不要在最该奋斗的年纪选择安逸</span>
-         </div>
-         </div>
         <div class="info-tabs">
             <el-tabs v-model="activeName" type="border-card">
                 <el-tab-pane label="我的分享" name="share">我的分享</el-tab-pane>
@@ -39,8 +39,11 @@
                 activeName: 'share'
             };
         },
-        methods: {
-
+        methods: {},
+        computed: {
+            userName() {
+                return sessionStorage.getItem('userName');
+            }
         }
     }
 </script>
@@ -48,18 +51,17 @@
 <style>
     .info-tabs {
         width: 50% !important;
-        margin : 20px auto;
-
+        margin: 20px auto;
     }
-    .el-tabs__item{
+    .el-tabs__item {
         margin-left: 50px !important;
     }
-    .info-img>img{
+    .info-img>img {
         width: 32px;
         height: 32px;
         border-radius: 16px;
     }
-    .info-follows>span{
+    .info-follows>span {
         margin-left: 15px;
     }
 </style>

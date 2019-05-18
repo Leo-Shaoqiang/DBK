@@ -38,6 +38,8 @@
 }
 .hot-issues
 {
+    background-image: url("../assets/imgs/hotback.jpg");
+    background-size: 100% 100%;
     border:1px solid orange;
     height:500px;
     width:100%;

@@ -146,6 +146,7 @@
                 this.lists = res.data;
                 // console.log(this.lists)
             })
+            
         },
     }
 </script>

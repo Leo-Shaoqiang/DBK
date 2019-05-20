@@ -1,6 +1,6 @@
 <template>
     <el-row>
-        <el-col :span="3" :offset="3">
+        <el-col :span="2" :offset="3">
             <div class="border1">
                 <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;电&nbsp;&nbsp;&nbsp;影</div>
@@ -8,7 +8,7 @@
                 <img src="../assets/imgs/movie.jpg" class="img1">
             </div>
         </el-col>
-        <el-col :span="3" :offset="1">
+        <el-col :span="2" :offset="1">
             <div class="border1">
                 <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;美&nbsp;&nbsp;&nbsp;食</div>
@@ -16,7 +16,7 @@
                 <img src="../assets/imgs/food.jpg" class="img1">
             </div>
         </el-col>
-        <el-col :span="3" :offset="1">
+        <el-col :span="2" :offset="1">
             <div class="border1">
                 <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;旅&nbsp;&nbsp;&nbsp;游</div>
@@ -24,7 +24,7 @@
                 <img src="../assets/imgs/tral.jpg" class="img1">
             </div>
         </el-col>
-        <el-col :span="3" :offset="1">
+        <el-col :span="2" :offset="1">
             <div class="border1">
                 <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;音&nbsp;&nbsp;&nbsp;乐</div>
@@ -32,7 +32,16 @@
                 <img src="../assets/imgs/music.jpg" class="img1">
             </div>
         </el-col>
-        <el-col :span="3" :offset="1">
+        <el-col :span="2" :offset="1">
+            <div class="border1">
+                <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超
+                    &nbsp;&nbsp;&nbsp;话
+                </div>
+
+                <img src="../assets/imgs/chaohua.jpg" class="img1">
+            </div>
+        </el-col>
+        <el-col :span="2" :offset="1">
                 <div class="border1">
                     <div class="font1">&nbsp;&nbsp;&nbsp;关于Share</div>
     
@@ -43,7 +52,9 @@
 </template>
 
 <script>
+ 
     export default {
+        
     }
 </script>
 
@@ -53,11 +64,11 @@
         width: 230px;
         height: 120px;
     }
-
+    /* 每一个小版块整体 */
     .img1 {
         cursor:pointer;
         filter: blur(2px);
-        width: 230px;
+        width: 200px;
         height: 120px;
         z-index: -99;
     }
@@ -66,9 +77,9 @@
         line-height: 100px;
         color: white;
         position: absolute;
-
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 40px;
         z-index: 99;
     }
+   
 </style>

@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.6.3",
+    "jquery-mockjax": "^2.5.0",
     "vue": "^2.6.6",
     "vue-axios": "^2.1.4",
     "vue-quill-editor": "^3.0.6",

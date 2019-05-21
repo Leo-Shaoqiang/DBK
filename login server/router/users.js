@@ -57,6 +57,7 @@ router.route('/').get((req, res) => {
      }).sort({ _id : -1 }).limit(3).skip((page-1)*3);
      
 })
+// 文章列表
 router.route('/list').get(async (req,res)=>{
      const { page } = req.query;
      try {
@@ -68,11 +69,10 @@ router.route('/list').get(async (req,res)=>{
           res.json({ok : 1, data: {lists , pagination : {total,page}}})
      } catch (error) {
           console.log(error);
-          
      }
      });
-   
-   
+     
+  
 // 发表页面
 router.route('/issue').post((req, res) => {
     

@@ -14,9 +14,63 @@
             </div>
              </el-col>
         </div>
-    </div>
-</template>
 
+        <el-row :gutter="20">
+             <el-col :span="5">
+                 <div class="link-left">
+                     <p>share</p>
+                     <ul>
+                         <li>中国年轻一代用的大博客</li>
+                         <li>分享记录你自己的吃穿住行</li>
+                         <li>上万旅行者的旅行借鉴</li>
+                       
+                      </ul>
+                   </div>
+                </el-col>
+             <el-col :span="4">
+                 <div class="link">
+                     <p>关于我们</p>
+                     <ul>
+                         <li> 关于share</li> <li>联系我们</li>
+                     </ul>
+                     <ul>
+                        <li> 隐私政策</li> <li>商标声明</li>
+                     </ul>
+                     <ul>
+                        <li> 服务协议</li> <li>有机协议</li>
+                     </ul>
+                  </div>
+                </el-col>
+                <el-col :span="6">
+                 <div class="link-right">
+                     <ul>
+                         <li><i class="el-icon-phone"></i></li>
+                         <li>13111865085</li>
+                     </ul>
+                     <ul>   
+                          <li><i class=" el-icon-message"></i></li>
+                           <li>share@icloud.com</li>
+                       </ul>  
+                 </div> 
+                 </el-col>
+
+        </el-row>
+  
+     <!-- <div class="link">
+          <ul>
+            <li> 关于share</li> <li>联系我们</li>
+          </ul>
+         <ul>
+            <li> 隐私政策</li> <li>商标声明</li>
+         </ul>
+         <ul>
+            <li> 服务协议</li> <li>有机协议</li>
+            </ul>
+      </div> -->
+
+   </div>
+</template>
+ 
 <script>
     export default {
     }
@@ -57,6 +111,41 @@
         height: 200px;
         background-color: beige;
     }
+    .link-left {
+         margin-top:40px;
+        margin-left:20px;
+        
+    }
+    .link{
+        margin-top:40px;
+        margin-left:20px;
+
+    }
+
+    .link ul{
+        margin-bottom:10px;
+    }
+    .link li{
+     display: inline;
+     margin-top:20px;
+     margin-right:10px;    
+    }
+  li{
+      font-size: 14px; 
+  }
+  .link-right{
+      margin-top:100px;
+      margin-left:40px;
+  }
+  .link-right ul{
+      margin-top:10px;
+  }
+  .link-right li{
+     display: inline;
+     margin-left: 10px;
+     margin-top:10px;
+     font-size: 16px;
+  }
     #footer
     {
         position:absolute;

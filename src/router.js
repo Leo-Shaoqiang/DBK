@@ -43,6 +43,11 @@ Vue.use(Router)
       path: '/Register',
       name: 'Register',
       component: () => import( '@/components/Register.vue')
+    },
+    {
+      path: '/ContentInfo',
+      name: 'ContentInfo',
+      component: () => import( '@/components/ContentInfo.vue')
     }
   ]
 });

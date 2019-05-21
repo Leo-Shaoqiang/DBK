@@ -108,15 +108,14 @@
                 .then(({ data })=>{
                     this.lists = data.lists;
                     this.total = data.pagination.total;
-                    console.log(data.lists);
-                    
+                    // console.log(data.lists);                
                 })  
                 }
             },
         mounted() {
             this.axios.get('/users/', this.blog).then((res) => {
                 this.lists = res.data;
-                console.log(this.lists)
+                // console.log(this.lists)
             })
         },
     }

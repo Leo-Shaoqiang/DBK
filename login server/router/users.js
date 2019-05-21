@@ -102,5 +102,8 @@ router.route('/issue').post((req, res) => {
            
      })
 })
-
+//点赞
+router.route('/bonus').post((req,res)=>{
+     Blog.findOne({id : req.body.data._id})
+})
 module.exports = router

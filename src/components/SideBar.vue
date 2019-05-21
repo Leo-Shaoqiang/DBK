@@ -34,12 +34,14 @@
     width:350px;
     float: right;
     margin-right: 7%;
-    height:400px;
+    height:300px;
 }
 .hot-issues
 {
+    background-image: url("../assets/imgs/hotback.jpg");
+    background-size: 100% 100%;
     border:1px solid orange;
-    height:700px;
+    height:500px;
     width:100%;
     font-size:20px;
 }

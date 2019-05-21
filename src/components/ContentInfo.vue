@@ -1,16 +1,14 @@
 <template>
     <div>
+            <Navbar></Navbar>
+       <div>
         <div id="header">
-             <p>标题：</p>   <span>标签：</span>    <span>推荐星级：</span>
+             <p>{{title}}</p>   <span>{{tag}}</span>    <span>推荐星级：{{id}}</span>
         </div> 
      <img src="IMG_7568.JPG" style=" width:200px; height:260px" >
     
         <div id="content">
-             暗洞中，白蛇（张喆 配音）苦苦修炼却不得其法，小青见此情景，将发髻上的碧玉簪子取下，令白蛇攥在手中。
-             那一刻，五百年前的记忆瞬间苏醒。五百年前，晚唐君主昏聩庸碌，掌握邪术的国师只手遮天，命令天下百姓捕蛇修法。
-             为了拯救族群，白蛇冒险行刺，结果却遭遇挫败，还失去了记忆。当她再度醒来，发现自己被一个专门捕蛇的村落所救下，
-             而那个胆小却善良的青年许宣（杨天翔 配音）则吸引了白蛇的注意。与此同时，国师派出爪牙四处追寻白蛇的下落，
-             而蛇族更误解白蛇叛逃人类，接二连三派出杀手。
+             {{content}}
         </div>
             <div id="communication">
                <ul>
@@ -42,7 +40,7 @@
            
 
         </div>
-        
+        </div>
 
 
  
@@ -53,10 +51,32 @@
 </template>
 
 <script>
-//     import Footer from './Footer.vue';
-//    import Navbar from '@/views/Navbar.vue';
+    
+    import Navbar from '@/views/Navbar.vue';
+    export default {
+        name:"ContentInfo",
+        data(){
+            return{
+                title: '',
+                tag: '',
+                content: '',
+                id:'',
+            }
+        },
+        components: {
+            Navbar
+        },
+        mounted(){
+            this.id=this.$route.params.id
+            this.axios.get('/users/ContentInfo/:id').then((res) => {
+               
+                this.title=res.data.title
+                // this.tag=res.data.tag
+                this.content=res.data.content
+                console.log(res.data)
+            })
 
- $(document).ready(function() {
+            $(document).ready(function() {
         var check1 = 0;
         var check2 = 0;
         $(".bonus").on('click', function() {
@@ -83,8 +103,10 @@
             }
         });
     })
+        }
  
-
+ 
+    }
 </script>
 
 
@@ -95,7 +117,7 @@
  } 
  /* 头部标题 */
 #header{
-    margin-top:160px;
+    margin-top:5%;
     
 }
 #header p{

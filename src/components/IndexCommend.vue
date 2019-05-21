@@ -160,7 +160,6 @@
   }
     .tag-write{
         width:150px;
-
        
     }
     .tag-hot{

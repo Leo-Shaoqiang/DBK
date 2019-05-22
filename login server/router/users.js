@@ -106,4 +106,14 @@ router.route('/issue').post((req, res) => {
 router.route('/bonus').post((req,res)=>{
      Blog.findOne({id : req.body.data._id})
 })
+
+router.route('/ContentInfo/:id').get((req, res) => {
+	// console.log(req.params.id);
+	
+	Blog.findOne({'_id' : req.params.id},(err,blog)=>{
+		
+		 if(err){console.log(err);}
+		  res.json(blog ? blog:{});
+	})
+})
 module.exports = router

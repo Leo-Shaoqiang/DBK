@@ -58,6 +58,11 @@
                                         </li>
                                         <li class="share"><img src="../assets/imgs/icons/share.png" width="38px">
                                         </li>
+                                         <li width="38px"><router-link :to="{name:'ContentInfo',params:{id:item._id}}">
+                                                阅读全文》
+                                                </router-link>
+                                                <router-view></router-view>
+                                        </li>
                                     </ul>
                                 </el-col>
                             </el-row>
@@ -84,6 +89,7 @@
         data() {
             return {
                 // 文章
+                link: 'ContentInfo/$(this.id)',
                 title: '',
                 tag: '',
                 content: '',
@@ -129,17 +135,15 @@
             },
             getData() {
                 this.axios
-                    .get(`/users/list?page=${this.page}`)
-                    .then(res => res.data)
-                    .then(({
-                        data
-                    }) => {
-                        this.lists = data.lists;
-                        this.total = data.pagination.total;
-                        // console.log(data.lists);                
-                    })
-            }
-        },
+                .get(`/users/list?page=${this.page}`)
+                .then(res =>res.data) 
+                .then(({ data })=>{
+                    this.lists = data.lists;
+                    this.total = data.pagination.total;
+                    // console.log(data.lists);                
+                })  
+                }
+            },
         mounted() {
             this.axios.get('/users/', this.blog).then((res) => {
                 this.lists = res.data;
@@ -150,24 +154,27 @@
 </script>
 <style>
     .el-dropdown-link {
-        cursor: pointer;
-        color: goldenrod;
+    cursor: pointer;
+    color: goldenrod;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+    .tag-write{
+        width:150px;
+       
     }
-    .el-icon-arrow-down {
-        font-size: 12px;
+    .tag-hot{
+        border:1px;
+        margin-top:5%;
+        color:goldenrod;
+        width:200px;
+        height:60px;
+        font-size:40px;
+        margin-left:5%;
+        
     }
-    .tag-write {
-        width: 150px;
-    }
-    .tag-hot {
-        border: 1px;
-        margin-top: 5%;
-        color: goldenrod;
-        width: 200px;
-        height: 60px;
-        font-size: 40px;
-        margin-left: 5%;
-    }
+    
     .back {
         border: 1px;
     }

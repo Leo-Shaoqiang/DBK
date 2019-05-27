@@ -45,7 +45,7 @@
                                         <img src="../assets/imgs/jay.jpg" style="width:300px;height:200px">
                                     </div>
                                 </el-col>
-                                <el-col :span="16">
+                                <el-col :span="12" style="margin-left:5%;">
                                     <div class="box-content">
                                         <h5 v-html="item.content"> </h5>
                                     </div>
@@ -58,8 +58,7 @@
                                         </li>
                                         <li class="share"><img src="../assets/imgs/icons/share.png" width="38px">
                                         </li>
-                                         <li width="38px"><router-link :to="{name:'ContentInfo',params:{id:item._id}}">
-                                                阅读全文》
+                                         <li width="38px"><router-link :to="{name:'ContentInfo',params:{id:item._id}}"> 阅读全文》
                                                 </router-link>
                                                 <router-view></router-view>
                                         </li>
@@ -183,6 +182,8 @@
     }
     .box-content {
         border: 1px;
+        width:100%;
+        height:150px;
         border-top: 1px solid rgb(247, 250, 99);
         overflow: hidden;
         margin-left: 5%;
@@ -216,8 +217,8 @@
         list-style-type: none;
         position: absolute;
         bottom: 10px;
-        width: 200px;
-        left: 80%;
+        width: 300px;
+        left: 70%;
     }
     .communication ul {
         position: relative;

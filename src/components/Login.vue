@@ -44,10 +44,9 @@ import Navbar from '@/views/Navbar.vue';
 		},
 		methods: {
 			login() {
-				// let  _this = this ;
 				this.$refs.loginForm.validate((valid) => {
 					if (valid) {
-						this.axios.post('/users/validate', this.user).then((res) => {
+						this.axios.post('/users/validate', this.user,{withCredentials: true}).then((res) => {
 							var data = res.data;
 							if (this.user.name == data.name && this.user.pass == data.pass) {
 								this.$store.dispatch('login', this.user.name).then(() => {
@@ -61,6 +60,7 @@ import Navbar from '@/views/Navbar.vue';
 											duration: 3000
 										})
 									} else {
+									
 										this.$router.replace('/');
 									}	
 								})

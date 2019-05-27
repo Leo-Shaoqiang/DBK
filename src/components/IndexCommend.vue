@@ -31,7 +31,7 @@
                             <el-row>
                                 <el-col :span="4" style="margin-left:5%;padding-top:2%;">
                                     <img src="../assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
-                                    <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
+                                    <span id="usersname" style="float:left;margin-top:20px;">{{item.Auid}}</span>
                                 </el-col>
                                 <el-col :span="6" style="padding-top:2%;">
                                     <!-- <h1>{{item._id}}</h1>   id                                    -->

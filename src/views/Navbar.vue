@@ -4,7 +4,7 @@
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
         <el-col :span="2">  
           <router-link to="/">
-            <el-menu-item index="1">首页</el-menu-item>
+            <el-menu-item index="1">首页</el-menu-item>  
           </router-link>
         </el-col>
         <el-col :span="2">
@@ -37,11 +37,12 @@
         
         <el-col :span="2">
           <div class="login-registe">
-            <span v-if="userName">
-              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{userName}}</span></router-link>
+            <span v-if="user">
+              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{ user }}</span></router-link>
                   <a @click="logout()" style="cursor: pointer;" >注销</a>                
               </span>
             <a href="#" @click="login()" v-else>登录</a>
+            <!-- <span>{{ time }}</span> -->
             <span class="split"> | </span>
             <router-link to="/Register"><a href="#">注册</a></router-link>
           </div>
@@ -55,6 +56,7 @@
 </template>
 
 <script lang="ts">
+
   export default {
     data() {
       return {
@@ -66,25 +68,22 @@
         state2: '',
       };
     },
-    methods: {
-      
+    methods:{ 
       login() {
-        this.$router.replace('./Login')
+        this.$router.replace('./Login');
       },
       logout() {
         this.$store.dispatch('logout').then(() => {
           this.$router.replace('./Login');
         })
-      }
-    },
-    computed: {
-      user() {
-        return this.$store.state.user;
+        
       },
-      userName(){
-        return sessionStorage.getItem('userName');
-      }
-    }
+    },
+   computed:{
+     user(){
+       return this.$store.state.user;
+     }
+   }
   }
 </script>
 

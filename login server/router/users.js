@@ -5,9 +5,21 @@ var Blog =  require('../models/blog')
 
 //登录
  router.route('/validate').post((req, res) => {
-      User.findOne({name : req.body.name, pass : req.body.pass},(err,user)=>{
-           if(err)console.log(err);
-            res.json(user ? user:{});
+      let { name , pass } = req.body;
+      User.findOne({name : name, pass : pass},(err,user)=>{
+           if(err){console.log(err);}
+           else{
+                let  sessions = req.session
+               sessions.userName =  user.name;
+               sessions.userID = user._id;
+               console.log('登录时的会话 ID ：', req.sessionID);
+               sessions.save()
+               console.log(sessions.userName);        
+               console.log(sessions.cookie);
+               
+               res.json( user ? user:{});
+           }
+         
       })
      
  })
@@ -50,12 +62,14 @@ var Blog =  require('../models/blog')
 })
 // 首页数据
 router.route('/').get((req, res) => {
+      
      const { page } = req.query;  
      Blog.find({},(err,blog)=>{
           if(err){console.log(err);}
           res.json(blog ?blog:{});  //数据转化为json  然后可在前端使用   
      }).sort({ _id : -1 }).limit(3).skip((page-1)*3);
-     
+
+    
 })
 // 文章列表
 router.route('/list').get(async (req,res)=>{
@@ -73,9 +87,11 @@ router.route('/list').get(async (req,res)=>{
      });
 // 发表页面
 router.route('/issue').post((req, res) => {
-    
+     // var  Auid = sessionStorage.getItem('userName');
+     // console.log(Auid);
+     
      Blog.find({},(err,blog)=>{
-          if(err){console.log(err);}
+          if(err){console.log(err);}         
           console.log(blog)
            res.json(blog ? blog:{});
            var times = new Date();
@@ -87,11 +103,13 @@ router.route('/issue').post((req, res) => {
           return false
      }else{
                //     存储数据
+            
                     var blogs = new Blog({
                           title: req.body.title,
                           tag: req.body.tag,
                           content: req.body.content,
-                          time : time
+                          time : time,
+                         //  Auid : Auid,
                     });
                     blogs.save((err, res) => {
                          if (err) console.log(err);
@@ -108,12 +126,18 @@ router.route('/bonus').post((req,res)=>{
 })
 
 router.route('/ContentInfo/:id').get((req, res) => {
-	// console.log(req.params.id);
-	
 	Blog.findOne({'_id' : req.params.id},(err,blog)=>{
 		
 		 if(err){console.log(err);}
 		  res.json(blog ? blog:{});
 	})
+})
+router.route('/checkCookie').get((req,res)=>{
+     if(!req.session.userName){
+         res.end('请登录')
+     }else{
+      let   userName = req.session.userName; 
+          res.json(userName);
+     }
 })
 module.exports = router

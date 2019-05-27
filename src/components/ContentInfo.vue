@@ -103,7 +103,7 @@
             }
         });
     })
-        }
+        }   
  
  
     }
@@ -129,10 +129,6 @@
 #header span{
     color: orangered;
     margin-left: 180px;
-}
-img{
-    margin-top:20px;
-   
 }
 /* 文章内容 */
 #content{

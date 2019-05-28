@@ -45,7 +45,7 @@ Vue.use(Router)
       component: () => import( '@/components/Register.vue')
     },
     {
-      path: '/ContentInfo',
+      path: '/ContentInfo/:id',
       name: 'ContentInfo',
       component: () => import( '@/components/ContentInfo.vue')
     },

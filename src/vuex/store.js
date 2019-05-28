@@ -10,12 +10,14 @@ Vue.use(Vuex)
     token: '', 
   },
   mutations: {
+    //登录
     login (state,payload){
       state.user += payload;
       state.isLogin = true;         
       sessionStorage.setItem('userName',state.user); 
       state.token = state.user;
     },
+    //登出
     logout(state){
       state.user = '';
       state.isLogin = false;

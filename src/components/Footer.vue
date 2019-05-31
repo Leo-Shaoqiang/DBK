@@ -82,7 +82,7 @@
             padding: 0;
         }
     .el-footer {
-        height: 200px !important;
+        height: 300px !important;
     }
     .wx-code-img,.wx-dbk {
         display: block;

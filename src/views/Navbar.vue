@@ -37,8 +37,8 @@
         
         <el-col :span="2">
           <div class="login-registe">
-            <span v-if="user">
-              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{ user }}</span></router-link>
+            <span v-if="Cookie">
+              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{ Cookie }}</span></router-link>
                   <a @click="logout()" style="cursor: pointer;" >注销</a>                
               </span>
             <a href="#" @click="login()" v-else>登录</a>
@@ -46,8 +46,8 @@
             <span class="split"> | </span>
             <router-link to="/Register"><a href="#">注册</a></router-link>
           </div>
-         
         </el-col>
+          <!-- <div @click="checkCookie()" style="float: right ;right : 200px;">查Cookie</div> -->
        
        
       </el-menu>
@@ -66,6 +66,7 @@
         restaurants: [],
         state1: '',
         state2: '',
+        Cookie: '',
       };
     },
     methods:{ 
@@ -73,24 +74,37 @@
         this.$router.replace('./Login');
       },
       logout() {
-        this.$store.dispatch('logout').then(() => {
-          this.$router.replace('./Login');
+        
+        this.axios.get('/users/deleteCookie',{withCredentials : true}).then(()=>{
+            this.$store.dispatch('logout').then(() => {
+               this.$router.replace('./Login');
+             })
+        }).catch((err)=>{
+          console.log(err);
+          
         })
         
       },
+       checkCookie(){
+        this.axios.get('/users/checkCookie',{withCredentials: true}).then((res) => {
+            this.Cookie = res.data;
+         
+        }).catch((err) => {
+          console.log(err);
+        });
+     },
     },
-   computed:{
-     user(){
-       return this.$store.state.user;
-     }
-   }
+    created () {
+      this.checkCookie();
+    }
   }
+  
 </script>
 
 <style scoped>
 .el-input
 {
-  font-size:20px;
+  font-size:20px; 
 }
 li
 {

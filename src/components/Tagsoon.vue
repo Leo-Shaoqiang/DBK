@@ -61,16 +61,17 @@
 <style>
     .border1 {
         border: 1px;
-        width: 230px;
-        height: 120px;
+        width: 100%;
+        height: 100%;
     }
     /* 每一个小版块整体 */
     .img1 {
         cursor:pointer;
         filter: blur(2px);
-        width: 200px;
-        height: 120px;
+        width: 100%;
+        height: 100%;
         z-index: -99;
+
     }
 
     .font1 {

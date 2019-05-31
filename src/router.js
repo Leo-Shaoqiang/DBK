@@ -48,6 +48,11 @@ Vue.use(Router)
       path: '/ContentInfo/:id',
       name: 'ContentInfo',
       component: () => import( '@/components/ContentInfo.vue')
+    },
+    {
+      path: '/Detail',
+      name: '/Detail',
+      component: () => import( '@/components/Detail')
     }
   ]
 });

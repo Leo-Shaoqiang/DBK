@@ -47,7 +47,7 @@
             <router-link to="/Register"><a href="#">注册</a></router-link>
           </div>
         </el-col>
-          <!-- <div @click="checkCookie()" style="float: right ;right : 200px;">查Cookie</div> -->
+          <div @click="checkCookie()" style="float: right ;right : 200px;">查Cookie</div>
        
        
       </el-menu>

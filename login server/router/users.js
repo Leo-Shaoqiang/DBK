@@ -12,7 +12,7 @@ router.route("/validate").post((req, res) => {
                pass: pass
           },
           (err, user) => {
-               if (err || name == null) {
+               if ( name == null) {
                     console.log('输入有误');
                } else {
                     res.json(user ? user : {});
@@ -21,9 +21,9 @@ router.route("/validate").post((req, res) => {
                          sessions.userName = name;
                          sessions.userID = user._id;
                          sessions.save();
-                         // console.log("登录时的会话 ID ：", req.sessionID);
-                         // console.log(sessions.userName);
-                         // console.log(sessions.cookie)  
+                         console.log("登录时的会话 ID ：", req.sessionID);
+                         console.log(sessions.userName);
+                         console.log(sessions.cookie)  
                }
           }
      );

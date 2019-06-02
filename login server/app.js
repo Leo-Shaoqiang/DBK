@@ -18,7 +18,7 @@ app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:8080");
     res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.set('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Credentials', true);
     next();
 });
 
@@ -27,11 +27,9 @@ app.use(session({
     secret :  'lsq', // 对session id 相关的cookie 进行签名
     store: new FileStore(),// 本地存储session（文本文件，也可以选择其他store，比如redis的）
     resave : false,// 强制session保存到session store中
-    rolling: true, //  每次请求都需要修改session的保存时间。
     saveUninitialized: false, // 是否保存未初始化的会话
     cookie : {
         maxAge : 1000 * 60 * 30, // 设置 session 的有效时间，单位 毫秒
-
     },
 }));
 

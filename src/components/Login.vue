@@ -49,7 +49,7 @@ import Navbar from '@/views/Navbar.vue';
 						this.axios.post('/users/validate', this.user,{withCredentials: true}).then((res) => {
 							var data = res.data;
 							if (this.user.name === data.name && this.user.pass === data.pass) {
-								this.$store.dispatch('login', this.user.name).then(() => {
+								this.$store.dispatch('login', this.user.name).then((res) => {
 									// console.log(res);//数据库返回数据
 									// console.log(data.name);
 									// console.log(data.pass);							

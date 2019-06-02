@@ -88,7 +88,8 @@
        checkCookie(){
         this.axios.get('/users/checkCookie',{withCredentials: true}).then((res) => {
             this.Cookie = res.data;
-         
+            console.log(res.data);
+            
         }).catch((err) => {
           console.log(err);
         });

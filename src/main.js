@@ -8,7 +8,7 @@ import store from './vuex/store'
 import axios from 'axios'
 import VueAxios from  'vue-axios'
 axios.defaults.baseURL = "http://localhost:3000"
-
+axios.defaults.withCredentials = true;
 
 Vue.use(ElementUI);
 Vue.use(VueCookies);

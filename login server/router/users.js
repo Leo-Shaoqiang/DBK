@@ -12,19 +12,20 @@ router.route("/validate").post((req, res) => {
                pass: pass
           },
           (err, user) => {
-               if ( name == null) {
-                    console.log('输入有误');
+               if (err) {
+                    console.log(err);
                } else {
-                    res.json(user ? user : {});
-
+                   
                          let sessions = req.session;
                          sessions.userName = name;
                          sessions.userID = user._id;
                          sessions.save();
                          console.log("登录时的会话 ID ：", req.sessionID);
                          console.log(sessions.userName);
-                         console.log(sessions.cookie)  
+                         console.log(sessions.cookie) //以上代码不可与下面的 互换顺序
+                         res.json(user ? user : {});
                }
+               
           }
      );
 });
@@ -173,6 +174,7 @@ router.route("/bonus").post((req, res) => {
 // 判断cookie
 router.route("/checkCookie").get((req, res) => {
      if (!req.session.userName) {
+          console.log(req.session.userName)
           res.end("");
      } else {
           let userName = req.session.userName;

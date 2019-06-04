@@ -28,8 +28,8 @@
         </el-col>
         <el-col :span="2">
           <div class="search">
-             <el-input placeholder="请输入内容"  class="input-with-select" style="width:300px;">
-            <el-button slot="append"  class="search-icon" icon="el-icon-search"></el-button>
+             <el-input placeholder="请输入内容"  class="input-with-select" style="width:300px;" v-model="sear">
+            <el-button slot="append"  class="search-icon" icon="el-icon-search" @click="search"></el-button>
           </el-input>
           </div>
          
@@ -64,12 +64,20 @@
         activeIndex: "1",
         //search 
         restaurants: [],
+        sear:"",
         state1: '',
         state2: '',
         Cookie: '',
       };
     },
     methods:{ 
+      search(){
+        this.axios.post('/users/Nav',{"sear" : this.sear}).then((res)=>{
+          console.log(res.data)
+          this.$router.replace('./Nav');
+          this.sear=""
+        })
+      },
       login() {
         this.$router.replace('./Login');
       },
@@ -88,7 +96,7 @@
        checkCookie(){
         this.axios.get('/users/checkCookie',{withCredentials: true}).then((res) => {
             this.Cookie = res.data;
-            console.log(res.data);
+            // console.log(res.data);
             
         }).catch((err) => {
           console.log(err);

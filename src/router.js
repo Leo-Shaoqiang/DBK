@@ -53,6 +53,11 @@ Vue.use(Router)
       path: '/Detail',
       name: '/Detail',
       component: () => import( '@/components/Detail')
+    },
+    {
+      path: '/Nav',
+      name: '/Nav',
+      component: () => import( '@/components/Nav')
     }
   ]
 });

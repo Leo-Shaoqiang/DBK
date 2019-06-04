@@ -184,7 +184,7 @@
         border: 1px;
         width:100%;
         height:150px;
-        border-top: 1px solid rgb(247, 250, 99);
+        border-top: 1px solid  goldenrod;;
         overflow: hidden;
         margin-left: 5%;
     }

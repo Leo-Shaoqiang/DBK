@@ -21,9 +21,9 @@ router.route("/validate").post((req, res) => {
                          sessions.userName = name;
                          sessions.userID = user._id;
                          sessions.save();
-                         console.log("登录时的会话 ID ：", req.sessionID);
-                         console.log(sessions.userName);
-                         console.log(sessions.cookie) //以上代码不可与下面的 互换顺序
+                         // console.log("登录时的会话 ID ：", req.sessionID);
+                         // console.log(sessions.userName);
+                         // console.log(sessions.cookie) //以上代码不可与下面的 互换顺序
                          res.json(user ? user : {});
                }
                
@@ -168,6 +168,21 @@ router.route("/issue").post((req, res) => {
           }
      });
 });
+
+router.route('/Nav').post((req, res) => {
+     Blog.find({title:req.body.sear}, (err,blog) => {
+          if (err) { console.log(err); }
+          
+          console.log(req.body.sear)
+          console.log(blog)
+          res.json(blog?blog:{}); 
+          
+     })
+          
+           
+})
+
+
 //点赞
 router.route("/bonus").post((req, res) => {
      Blog.findOne({

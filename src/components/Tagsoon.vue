@@ -2,7 +2,7 @@
     <el-row>
         <el-col :span="2" :offset="3">
             <div class="border1">
-                <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="font1">&nbsp;
                     &nbsp;电&nbsp;&nbsp;&nbsp;影</div>
 
                 <img src="../assets/imgs/movie.jpg" class="img1">
@@ -10,7 +10,7 @@
         </el-col>
         <el-col :span="2" :offset="1">
             <div class="border1">
-                <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="font1">&nbsp;
                     &nbsp;美&nbsp;&nbsp;&nbsp;食</div>
 
                 <img src="../assets/imgs/food.jpg" class="img1">
@@ -18,7 +18,7 @@
         </el-col>
         <el-col :span="2" :offset="1">
             <div class="border1">
-                <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="font1">&nbsp;
                     &nbsp;旅&nbsp;&nbsp;&nbsp;游</div>
 
                 <img src="../assets/imgs/tral.jpg" class="img1">
@@ -26,7 +26,7 @@
         </el-col>
         <el-col :span="2" :offset="1">
             <div class="border1">
-                <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="font1">&nbsp;
                     &nbsp;音&nbsp;&nbsp;&nbsp;乐</div>
 
                 <img src="../assets/imgs/music.jpg" class="img1">
@@ -34,7 +34,7 @@
         </el-col>
         <el-col :span="2" :offset="1">
             <div class="border1">
-                <div class="font1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超
+                <div class="font1">&nbsp;&nbsp;超
                     &nbsp;&nbsp;&nbsp;话
                 </div>
 
@@ -43,7 +43,7 @@
         </el-col>
         <el-col :span="2" :offset="1">
                 <div class="border1">
-                    <div class="font1">&nbsp;&nbsp;&nbsp;关于Share</div>
+                    <div class="font1">&nbsp;&nbsp;关 &nbsp;&nbsp;&nbsp;于</div>
     
                     <img src="../assets/imgs/share.jpg" class="img1">
                 </div>
@@ -62,14 +62,14 @@
     .border1 {
         border: 1px;
         width: 100%;
-        height: 100%;
+        height: 100px;
     }
     /* 每一个小版块整体 */
     .img1 {
         cursor:pointer;
         filter: blur(2px);
         width: 100%;
-        height: 100%;
+        height: 100px;
         z-index: -99;
 
     }

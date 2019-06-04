@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require("../models/user");
 var Blog = require("../models/blog");
 var Comt = require("../models/comt");
+
 //登录
 router.route("/validate").post((req, res) => {
      let { name, pass } = req.body;
@@ -150,12 +151,14 @@ router.route("/issue").post((req, res) => {
           if (req.body.title == "" || req.body.content == "" || req.body.tag == "") {
                return false;
           } else {
+          
                //     存储数据
                var blogs = new Blog({
                     title: req.body.title,
                     tag: req.body.tag,
                     content: req.body.content,
-                    time: time
+                    time: time,
+                    Auid : req.session.userName,
                });
                blogs.save((err, res) => {
                     if (err) console.log(err);

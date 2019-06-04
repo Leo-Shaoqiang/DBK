@@ -6,7 +6,7 @@
 			<div>
 				<span class="commandtitle">相关推荐</span>
 				<div class="commandstyle">
-					<ul class="commandissue" v-for="item in list">
+					<ul class="commandissue" v-for="item in list" :key="item._id">
 						<li><a href="http://localhost:8080/">{{item.title}}</a></li>
 					</ul>
 				</div>

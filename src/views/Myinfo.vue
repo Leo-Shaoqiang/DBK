@@ -5,7 +5,7 @@
             <div class="info-img">
                 <img src="@/assets/imgs/a2.png" alt="用户头像">
             </div>
-            <span>{{ userName }}</span>
+            <span>{{ user }}</span>
             <div class="info-follows">
                 <span>关注<a href="">66</a></span>
                 <span>|</span>
@@ -36,14 +36,24 @@
         data() {
             return {
                 // 默认显示share
-                activeName: 'share'
+                activeName: 'share',
+                user : '',
             };
         },
-        methods: {},
-        computed: {
-            userName() {
-                return sessionStorage.getItem('userName');
-            }
+        methods: {
+             checkCookie() {
+                this.axios.get('/users/checkCookie', {
+                    withCredentials: true
+                }).then((res) => {
+                    this.user = res.data;
+                    console.log(res.data);
+                }).catch((err) => {
+                    console.log(err);
+                });
+            },
+        },
+        created(){
+            this.checkCookie();
         }
     }
 </script>

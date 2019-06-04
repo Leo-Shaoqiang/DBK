@@ -37,8 +37,8 @@
         
         <el-col :span="2">
           <div class="login-registe">
-            <span v-if="Cookie">
-              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{ Cookie }}</span></router-link>
+            <span v-if="user">
+              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{ user }}</span></router-link>
                   <a @click="logout()" style="cursor: pointer;" >注销</a>                
               </span>
             <a href="#" @click="login()" v-else>登录</a>
@@ -66,7 +66,6 @@
         restaurants: [],
         state1: '',
         state2: '',
-        Cookie: '',
       };
     },
     methods:{ 
@@ -87,7 +86,7 @@
       },
        checkCookie(){
         this.axios.get('/users/checkCookie',{withCredentials: true}).then((res) => {
-            this.Cookie = res.data;
+            this.$store.state.user = res.data;
             console.log(res.data);
             
         }).catch((err) => {
@@ -97,6 +96,11 @@
     },
     created () {
       this.checkCookie();
+    },
+    computed: {
+      user(){
+            return  this.$store.state.user;
+      }
     }
   }
   

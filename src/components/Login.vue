@@ -44,13 +44,12 @@ import Navbar from '@/views/Navbar.vue';
 		},
 		methods: {
 			login() {
-				// let  _this = this ;
 				this.$refs.loginForm.validate((valid) => {
 					if (valid) {
-						this.axios.post('/users/validate', this.user).then((res) => {
+						this.axios.post('/users/validate', this.user,{withCredentials: true}).then((res) => {
 							var data = res.data;
-							if (this.user.name == data.name && this.user.pass == data.pass) {
-								this.$store.dispatch('login', this.user.name).then(() => {
+							if (this.user.name === data.name && this.user.pass === data.pass) {
+								this.$store.dispatch('login', this.user.name).then((res) => {
 									// console.log(res);//数据库返回数据
 									// console.log(data.name);
 									// console.log(data.pass);							

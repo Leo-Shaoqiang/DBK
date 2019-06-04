@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as actions from './actions'
+import * as mutations from './mutations'
 
 Vue.use(Vuex)
 
@@ -9,28 +11,7 @@ Vue.use(Vuex)
     isLogin: false,
     token: '', 
   },
-  mutations: {
-    //登录
-    login (state,payload){
-      state.user += payload;
-      state.isLogin = true;         
-      sessionStorage.setItem('userName',state.user); 
-      state.token = state.user;
-    },
-    //登出
-    logout(state){
-      state.user = '';
-      state.isLogin = false;
-      sessionStorage.removeItem('userName');
-    },
-  },
-  actions: {
-    login(context,payload){
-      context.commit('login',payload)
-    },
-    logout(context){
-      context.commit('logout')
-    },
-  }
+  mutations,
+  actions,
 })
 export default  store;

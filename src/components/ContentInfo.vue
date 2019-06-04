@@ -2,25 +2,29 @@
     <div>
         <Navbar></Navbar>
         <div class="sea-back">
+                
+                <el-row>
+                        <el-col :span="14" :offset="12">
+                                <img src="../assets/imgs/headerimg.jpg" class="font-img">
+                                 <div class="font-title">{{title}}</div>
+                        </el-col>
+                    </el-row>
+            </div>
             <el-container>
-                <el-aside width="320px">
+                <el-aside width="320px" style="margin-top:100px;margin-left:50px;">
                     <div class="comtitle">相关推荐</div>
                     <div class="comstyle">
-                        <ul class="comissue" v-for="item in list">
+                        <ul class="comissue" v-for="item in list" :key="item._id">
                             <li><a href="http://localhost:8080/"></a></li>
                         </ul>
                     </div>
                 </el-aside>
                 <el-container>
                     <el-main>
-                        <el-row>
-                            <el-col :span="14" :offset="10">
-                                <div class="font-title">{{title}}</div>
-                            </el-col>
-                        </el-row>
+                        
                         <el-row style="margin-top:5%;">
                             <el-col :span="4" :offset="4">
-                                <div class="font-tag">用户id</div>
+                                <div class="font-tag">用户id:yyc123</div>
                             </el-col>
                             <el-col :span="4" :offset="2">
                                 <div class="font-tag">推荐星级:
@@ -41,15 +45,15 @@
                         </el-row>
 
                         <el-row>
-                                <el-col :span="4" :offset="2">
+                             <el-col :span="4" :offset="2">
                                        
                                               <div class="block"  style="padding-top:10px;">
                                                     <span class="demonstration" style="display: inline">你的评价：</span>
                                                     <el-rate v-model="value1"  style="display: inline"></el-rate>
                                                   </div>
                                     </el-col>
-                            <el-col :span="2" :offset="8">
-                                <img src="../assets/imgs/comment.png" @click="comment" style="width:50px;height:40px;">
+                            <el-col :span="1" :offset="9">
+                                <img src="../assets/imgs/icons/review1.png" @click="comment" style="width:50px;height:40px;">
 
                             </el-col>
                             <el-col :span="4">
@@ -75,21 +79,22 @@
                         <el-row>
                             <el-col :span="16" :offset="2">
                                 <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="input"
-                                    style="display: none" v-show="flag">
+                                    style="display: none" v-show="true">
                                 </el-input>
 
                             </el-col>
                             <el-col :span="2">
-                                <el-button icon="el-icon-edit" v-on:click="send" v-show="flag">发送</el-button>
+                                <el-button icon="el-icon-edit" v-on:click="send" v-show="true">发送</el-button>
                             </el-col>
                         </el-row>
                         <el-row>
                             <el-col :span="17" :offset="2">
-                                <ul v-for="item in lists">
+                                <ul v-for="item in lists" :key="item._id">
                                     <li>
                                             <div class="comment-content">
                                                 <img src="../assets/imgs/a2.png"
-                                            style="width:50px;height:30px;float:left;">{{item.comment}}
+                                            style="width:50px;height:30px;float:left; border-radius: 80px;">
+                                            <div style="text-align:left">&nbsp;:&nbsp;&nbsp;&nbsp;{{item.comment}}</div>
                                         </div>
                                     </li>
                                 </ul>
@@ -103,7 +108,7 @@
             </el-container>
 
 
-        </div>
+        
 
 
 
@@ -210,30 +215,42 @@
 
     /* 头部标题 */
     .sea-back {
-        background-image: url('../assets/imgs/sea.jpg')
+        background-image: url('../assets/imgs/sea.jpg');
+        background-size:100% 100%;
+        width: 100%;
+        height:600px;
     }
 
     .font-title {
+        color:cornsilk;
+        font-size:80px;
+        margin-top:500px;
         border: 1px;
         border-bottom: 1px solid goldenrod;
         font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
         float: left;
         font-size: 40px;
     }
-
+    .font-img{
+        width:150px;
+        position: absolute;
+        top:300px;
+        left:49%;
+        height:150px;
+        border-radius:80px;
+    }
     .font-tag {
         font-family: Arial, Helvetica, sans-serif;
         float: left;
-        font-size: 20px;
+        font-size: 30px;
     }
 
     .font-content {
         width: 100%;
-        height: 600px;
         font-family: Arial, Helvetica, sans-serif;
-        border: 1px solid goldenrod;
+        border: 1px;
         float: left;
-        overflow: scroll;
+
         background-color: ivory;
     }
 
@@ -251,7 +268,7 @@
     .comstyle {
         border: 1px solid orange;
         width: 98%;
-        height: 700px;
+        height: 500px;
         background-color: ivory;
     }
 
@@ -288,7 +305,7 @@
     }
     .comment-content{
         width:100%;
-        border-top:1px solid black;
+        border-top:1px;
         
     }
    

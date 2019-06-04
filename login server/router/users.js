@@ -169,10 +169,21 @@ router.route("/issue").post((req, res) => {
      });
 });
 
-router.route('/Nav').post((req, res) => {
-     Blog.find({title:req.body.sear}, (err,blog) => {
+router.route('/').post((req, res) => {
+     Blog.find({"title":req.body.sear}, (err,blog) => {
           if (err) { console.log(err); }
+          console.log(req.body.sear)
+          console.log(blog)
+          res.json(blog?blog:{}); 
           
+     })
+         
+            
+})
+router.route('/Nav').post((req, res) => {
+     console.log()
+     Blog.find({"title":req.body.sear}, (err,blog) => {
+          if (err) { console.log(err); }
           console.log(req.body.sear)
           console.log(blog)
           res.json(blog?blog:{}); 
@@ -189,28 +200,28 @@ router.route("/bonus").post((req, res) => {
           id: req.body.data._id
      });
 });
-// 判断cookie
-router.route("/checkCookie").get((req, res) => {
-     if (!req.session.userName) {
-          console.log(req.session.userName)
-          res.end("");
-     } else {
-          let userName = req.session.userName;
-          res.json(userName);
-          console.log("Cookie" + req.session.userName);
-     }
-});
-//退出即删除cookie
-router.route("/deleteCookie").get((req, res) => {
-     res.clearCookie(req.session.userName);
+// // 判断cookie
+// router.route("/checkCookie").get((req, res) => {
+//      if (!req.session.userName) {
+//           console.log(req.session.userName)
+//           res.end("");
+//      } else {
+//           let userName = req.session.userName;
+//           res.json(userName);
+//           console.log("Cookie" + req.session.userName);
+//      }
+// });
+// //退出即删除cookie
+// router.route("/deleteCookie").get((req, res) => {
+//      res.clearCookie(req.session.userName);
 
-     req.session.destroy(function (err) {
-          if (err) {
-               res.json({ ret_code: 2, ret_msg: "退出登录失败" });
-               return;
-          }
-     });
-});
+//      req.session.destroy(function (err) {
+//           if (err) {
+//                res.json({ ret_code: 2, ret_msg: "退出登录失败" });
+//                return;
+//           }
+//      });
+// });
 
 //动态路由寻找详情页面
 router.route("/ContentInfo/:id").get((req, res) => {

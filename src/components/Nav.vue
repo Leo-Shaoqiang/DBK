@@ -1,24 +1,27 @@
 <template>
     <div>
-        <Navbar></Navbar>
+        <el-row>
+            <el-col :span="2" :offset="2">
+               <a href="http://localhost:8080/"><h2>返回</h2></a>
+            </el-col>
+        </el-row>
         <el-row>
             <el-col :span="2" :offset="2">
                 <div class="tag-hot">发现博客</div>
             </el-col>
         </el-row>
         <div class="index">
-            <ul v-for="(item,index) in list" :key="item._id">
+            <ul v-for="(item,index) in list">
                 <li>
                     <div class="back1">
                         <el-row>
                             <el-row>
-                                <el-col :span="4" style="margin-left:5%;padding-top:2%;">
+                                <el-col :span="6" style="margin-left:5%;padding-top:2%;">
                                     <img src="../assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
                                     <span id="usersname" style="float:left;margin-top:20px;">用户ID</span>
                                 </el-col>
                                 <el-col :span="6" style="padding-top:2%;">
-                                    <!-- <h1>{{item._id}}</h1>   id                                    -->
-                                    <h1>{{item.title}}</h1>
+                                     <h1>{{item.title}}</h1>
                                     <h3>{{item.tag}}</h3>
                                 </el-col>
                             </el-row>
@@ -41,7 +44,7 @@
                                         </li>
                                         <li class="share"><img src="../assets/imgs/icons/share.png" width="38px">
                                         </li>
-                                         <li width="38px"><router-link :to="{name:'ContentInfo',params:{id:it._id}}"> 阅读全文》
+                                         <li width="38px"><router-link :to="{name:'ContentInfo',params:{id:item._id}}"> 阅读全文》
                                                 </router-link>
                                                 <router-view></router-view>
                                         </li>
@@ -59,11 +62,11 @@
 </template>
 
 <script>
-  import Navbar from '@/views/Navbar.vue';
+
     
     export default {
         components: {
-            Navbar,
+            
             
         },
         data() {
@@ -72,7 +75,6 @@
                 title: '',
                 tag: '',
                 content: '',
-                
                 // 分页
                 list: [],
                 page: 1,
@@ -84,6 +86,8 @@
         },
         methods: {
              // 点赞
+             
+      
              ClickBar(index) {
                 if(this.isLiked == -1){
                     this.isLiked = index;
@@ -101,13 +105,7 @@
             }
         },
         mounted() {
-           this.axios.post('/users/Nav',{"sear" : this.sear}).then((res) => {
-                            this.list=res.data
-                            console.log( 'res.data:',  res.data)
-                            
-                            
-              
-          })
+
         }
     }
 </script>

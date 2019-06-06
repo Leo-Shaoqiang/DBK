@@ -31,9 +31,9 @@
         </el-col>
         <el-col :span="2">
           <div class="search">
-            <el-input placeholder="请输入内容" class="input-with-select" style="width:300px;" v-model="sear">
-              <el-button slot="append" class="search-icon" icon="el-icon-search" @click="search"></el-button>
-            </el-input>
+            <input type="text" placeholder="搜索请在此输入内容"  style="width:200px;height:30px;"  @keyup.enter="search" :value="msg">
+              
+            
           </div>
 
         </el-col>
@@ -59,43 +59,29 @@
 </template>
 
 <script lang="ts">
-
+import {mapState} from 'vuex'
   export default {
     data() {
       return {
         // 菜单栏
         activeIndex: "1",
         //search 
+    
         restaurants: [],
-        sear: "",
         state1: '',
         state2: '',
       };
     },
+    computed:mapState({
+  msg:state => state.msg
+}),
     methods: {
-      search() {
-        this.axios.post('/users/', { "sear": this.sear }).then((res) => {
-          console.log(res.data)
-          if (this.sear == '') { 
-
-            this.$message({
-              type: 'error',
-              message: '搜索失败！内容不能为空',
-              duration: 3000
-            })
-          } else {
-            this.$message({
-              type: 'success',
-              message: '搜索结果如下！',
-
-            })
-            this.$router.replace('./Nav');
-            this.sear = ""
-          }
-
-        })
+      search(e) {
         
-      },
+      this.$store.commit('SET_MSG',e.target.value)
+      this.$router.push("/Nav")
+    
+        },
       login() {
         this.$router.replace('./Login');
       },
@@ -125,11 +111,7 @@
     created() {
       this.checkCookie();
     },
-    computed: {
-      user() {
-        return this.$store.state.user;
-      }
-    }
+    
   }
 
 </script>

@@ -169,22 +169,12 @@ router.route("/issue").post((req, res) => {
      });
 });
 
-router.route('/').post((req, res) => {
-     Blog.find({"title":req.body.sear}, (err,blog) => {
-          if (err) { console.log(err); }
-          console.log(req.body.sear)
-          console.log(blog)
-          res.json(blog?blog:{}); 
-          
-     })
-         
-            
-})
+
 router.route('/Nav').post((req, res) => {
-     console.log()
-     Blog.find({"title":req.body.sear}, (err,blog) => {
+     
+     Blog.find({"title":req.body.msg}, (err,blog) => {
           if (err) { console.log(err); }
-          console.log(req.body.sear)
+          console.log(req.body.msg)
           console.log(blog)
           res.json(blog?blog:{}); 
           

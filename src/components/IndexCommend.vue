@@ -29,14 +29,16 @@
                     <div class="back">
                         <el-row>
                             <el-row>
-                                <el-col :span="4" style="margin-left:5%;padding-top:2%;">
+                                <el-col :span="6" style="margin-left:5%;padding-top:2%;">
                                     <img src="../assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
                                     <span id="usersname" style="float:left;margin-top:20px;">{{item.Auid}}</span>
                                 </el-col>
-                                <el-col :span="6" style="padding-top:2%;">
+                                <el-col :span="16" style="padding-top:2%;">
                                     <!-- <h1>{{item._id}}</h1>   id                                    -->
-                                    <h1>{{item.title}}</h1>
-                                    <h3>{{item.tag}}</h3>
+                                    <div class="blogt">
+                                    <h2 >{{item.title}}</h2>
+                                    <h4>{{item.tag}}</h4>
+                                    </div>
                                 </el-col>
                             </el-row>
                             <el-row style="margin-top:2%;margin-bottom:2%;">
@@ -152,6 +154,9 @@
     }
 </script>
 <style>
+    .blogt{
+        float:left
+    }
     .el-dropdown-link {
     cursor: pointer;
     color: goldenrod;
@@ -218,7 +223,7 @@
         position: absolute;
         bottom: 10px;
         width: 300px;
-        left: 70%;
+        left: 65%;
     }
     .communication ul {
         position: relative;

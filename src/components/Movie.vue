@@ -13,7 +13,7 @@
       
     <Classify></Classify>
     <el-row>
-    <IndexCommend></IndexCommend>
+    
     
       </el-row>
        

@@ -183,6 +183,20 @@ router.route('/Nav').post((req, res) => {
            
 })
 
+router.route('/Movie').post((req, res) => {
+     
+     Blog.find({"title":req.body.my}, (err,blog) => {
+          if (err) { console.log(err); }
+          console.log(req.body.my)
+          console.log(blog)
+          res.json(blog?blog:{}); 
+
+          
+     })
+          
+           
+})
+
 
 //点赞
 router.route("/bonus").post((req, res) => {

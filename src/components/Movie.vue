@@ -10,7 +10,7 @@
           </el-carousel-item>
         </el-carousel>
       </el-row>
-      
+      <!-- 调用分类组件 -->
     <Classify></Classify>
     <el-row>
     

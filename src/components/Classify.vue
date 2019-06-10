@@ -235,7 +235,7 @@
                                 content: '',
                                 // 分页
                                 lis: [],
-                               my:"",
+                                my: "",
                                 //点赞  收藏
                                 isLiked: -1,
                                 star: -1,
@@ -260,14 +260,15 @@
                         write() {
                                 this.$router.replace('/issue');
                         },
+                        //点击传值
                         change(index, e) {
                                 this.changebackground = index;
-                               this.my=e.target.innerHTML.trim()
+                                this.my = e.target.innerHTML.trim()
                                 console.log(this.my)
-                                this.axios.post('/users/Movie', {"my":this.my}).then((res) => {
-                                         this.lis = res.data;
-                console.log(res.data)
-            })
+                                this.axios.post('/users/Movie', { "my": this.my }).then((res) => {
+                                        this.lis = res.data;
+                                        console.log(res.data)
+                                })
                         },
                         // 地区栏的方法
                         change2(index2, e) {
@@ -286,7 +287,7 @@
                         },
                         // 演员栏的方法
                 },
-                
+
         }
 </script>
 <style>

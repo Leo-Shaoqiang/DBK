@@ -183,8 +183,18 @@ router.route('/Nav').post((req, res) => {
            
 })
 
+//电影筛选页面
 router.route('/Movie').post((req, res) => {
+     if(req.body.my=="其他"){
+          Blog.find({}, (err,blog) => {
+               if (err) { console.log(err); }
+               console.log(req.body.my)
+               console.log(blog)
+               res.json(blog?blog:{}); 
      
+               
+          })
+     }else{ 
      Blog.find({"title":req.body.my}, (err,blog) => {
           if (err) { console.log(err); }
           console.log(req.body.my)
@@ -193,7 +203,7 @@ router.route('/Movie').post((req, res) => {
 
           
      })
-          
+}
            
 })
 

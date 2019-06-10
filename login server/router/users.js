@@ -3,6 +3,11 @@ var router = express.Router();
 var User = require("../models/user");
 var Blog = require("../models/blog");
 var Comt = require("../models/comt");
+// 图片上传
+var fs = require('fs');
+var multer  = require('multer')
+var upload = multer({ dest: 'upload/' });
+
 
 //登录
 router.route("/validate").post((req, res) => {
@@ -15,7 +20,11 @@ router.route("/validate").post((req, res) => {
           (err, user) => {
                if (err) {
                     console.log(err);
-               } else {
+               }else if(user == null){
+                   res.jsonp(user ? user : {});
+                    
+               } 
+               else {
                    
                          let sessions = req.session;
                          sessions.userName = name;
@@ -267,4 +276,12 @@ router.route("/ContentInfo/Submit/:id").post((req, res) => {
      }
 });
 
+// 上传图片
+router.route('/upload', upload.single('avatar')).post((req, res, next)=>{
+     res.send(req.file);
+ });
+//  router.route('/form').get((req, res, next)=>{
+//      var form = fs.readFileSync('./form.html', {encoding: 'utf8'});
+//      res.send(form);
+//  });
 module.exports = router;

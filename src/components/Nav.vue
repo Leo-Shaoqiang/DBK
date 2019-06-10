@@ -101,7 +101,7 @@
             }
         },
         mounted() {
-           this.axios.post('/users/Nav',{"sear" : this.sear}).then((res) => {
+           this.axios.get('/users/Nav',{"sear" : this.sear}).then((res) => {
                             this.list=res.data
                             console.log( 'res.data:',  res.data)
                             

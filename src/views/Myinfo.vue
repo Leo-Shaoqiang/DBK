@@ -3,11 +3,20 @@
         <Navbar></Navbar>
         <div class="info">
             <div class="info-img">
-                <img src="@/assets/imgs/a2.png" alt="用户头像">
+                <!-- <img src="@/assets/imgs/a2.png" alt="用户头像"> -->
+                <el-upload class="avatar-uploader" 
+                name="avatar"
+                action="/upload" 
+                :show-file-list="false" 
+                :on-success="getAvatarSuccess" 
+                :before-upload="beforeAvatarUpload">
+                    <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                </el-upload>
             </div>
             <span>{{ user }}</span>
             <div class="info-follows">
-                <span>关注<a href="">66</a></span>
+                <span>关注<a href="">66</a></span>  
                 <span>|</span>
                 <span>粉丝<a href="">88</a></span><br/>
                 <span class="info-notes">个性签名:不要在最该奋斗的年纪选择安逸</span>
@@ -37,11 +46,18 @@
             return {
                 // 默认显示share
                 activeName: 'share',
-                user : '',
+                user: '',
+                // 上传图片
+                imageUrl: '',
+                avatar: '', //头像文件名 使用时需要拼接形成完整路径
+                uploadData: {
+                            //使用 vuex 将用户名放在了 state 中 便于存取
+                 name: this.$store.state.user
+                }
             };
         },
         methods: {
-             checkCookie() {
+            checkCookie() {
                 this.axios.get('/users/checkCookie', {
                     withCredentials: true
                 }).then((res) => {
@@ -51,8 +67,27 @@
                     console.log(err);
                 });
             },
+            // 上传图片
+             getAvatarSuccess(res, file) {
+                 // res是响应数据 file是文件信息
+                 console.log('Myinfo 73' + file);
+                 
+                this.avatar = res.avatar
+                console.log( 'Myinfo 76' + res) // 本例中是  { avatar: 'xxx.jpg' }
+             },
+            beforeAvatarUpload(file) {
+                const isJPG = file.type === 'image/jpeg';
+                const isLt2M = file.size / 1024 / 1024 < 2;
+                if (!isJPG) {
+                    this.$message.error('上传头像图片只能是 JPG 格式!');
+                }
+                if (!isLt2M) {
+                    this.$message.error('上传头像图片大小不能超过 2MB!');
+                }
+                return isJPG && isLt2M;
+            }
         },
-        created(){
+        created() {
             this.checkCookie();
         }
     }
@@ -67,11 +102,34 @@
         margin-left: 50px !important;
     }
     .info-img>img {
-        width: 32px;
-        height: 32px;
-        border-radius: 16px;
+        width: 96px;
+        height: 96px;
+        border-radius: 48px;
     }
     .info-follows>span {
         margin-left: 15px;
+    }
+    .avatar-uploader .el-upload {
+        border: 1px dashed #d9d9d9;
+        border-radius: 48px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .avatar-uploader .el-upload:hover {
+        border-color: #409EFF;
+    }
+    .avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 96px;
+        height: 96px;
+        line-height: 100px;
+        text-align: center;
+    }
+    .avatar {
+        width: 96px;
+        height: 96px;
+        display: block;
     }
 </style>

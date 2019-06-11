@@ -73,7 +73,11 @@ import {mapState} from 'vuex'
       };
     },
     computed:mapState({
-  msg:state => state.msg
+  msg:state => state.msg,
+  user() {
+        return this.$store.state.user;
+      }
+
 }),
     methods: {
       search(e) {

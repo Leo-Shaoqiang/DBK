@@ -214,28 +214,28 @@ router.route("/bonus").post((req, res) => {
           id: req.body.data._id
      });
 });
-// // 判断cookie
-// router.route("/checkCookie").get((req, res) => {
-//      if (!req.session.userName) {
-//           console.log(req.session.userName)
-//           res.end("");
-//      } else {
-//           let userName = req.session.userName;
-//           res.json(userName);
-//           console.log("Cookie" + req.session.userName);
-//      }
-// });
+//  判断cookie
+router.route("/checkCookie").get((req, res) => {
+     if (!req.session.userName) {
+          console.log(req.session.userName)
+          res.end("");
+     } else {
+          let userName = req.session.userName;
+          res.json(userName);
+          console.log("Cookie" + req.session.userName);
+     }
+});
 // //退出即删除cookie
-// router.route("/deleteCookie").get((req, res) => {
-//      res.clearCookie(req.session.userName);
+router.route("/deleteCookie").get((req, res) => {
+     res.clearCookie(req.session.userName);
 
-//      req.session.destroy(function (err) {
-//           if (err) {
-//                res.json({ ret_code: 2, ret_msg: "退出登录失败" });
-//                return;
-//           }
-//      });
-// });
+     req.session.destroy(function (err) {
+          if (err) {
+               res.json({ ret_code: 2, ret_msg: "退出登录失败" });
+               return;
+          }
+     });
+});
 
 //动态路由寻找详情页面
 router.route("/ContentInfo/:id").get((req, res) => {

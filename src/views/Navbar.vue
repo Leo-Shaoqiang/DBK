@@ -2,9 +2,9 @@
   <div>
     <el-row>
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
-        <el-col :span="2">  
+        <el-col :span="2">
           <router-link to="/">
-            <el-menu-item index="1">首页</el-menu-item>  
+            <el-menu-item index="1">首页</el-menu-item>
           </router-link>
         </el-col>
         <el-col :span="2">
@@ -22,41 +22,41 @@
           <el-menu-item index="5">音乐</el-menu-item>
         </el-col>
         <el-col :span="2">
-            <div>
-                <router-link class="publish-a" to="/Issue"> <span class="publish"> <el-menu-item index="6">写博客</el-menu-item></span></router-link>
-            </div>
+          <div>
+            <router-link class="publish-a" to="/Issue"> <span class="publish">
+                  <el-menu-item index="6">写博客</el-menu-item>
+                </span></router-link>
+          </div>
         </el-col>
         <el-col :span="2">
           <div class="search">
-             <el-input placeholder="请输入内容"  class="input-with-select" style="width:300px;" v-model="sear">
-            <el-button slot="append"  class="search-icon" icon="el-icon-search" @click="search"></el-button>
-          </el-input>
+            <input type="text" placeholder="搜索请在此输入内容" style="width:200px;height:30px;" @keyup.enter="search" :value="msg">
           </div>
-         
         </el-col>
-        
-        <el-col :span="2">
+        <el-col :span="4">
           <div class="login-registe">
             <span v-if="user">
-              <router-link to="/Myinfo"><span style="margin-right: 5px; color:#FF9D00;">{{ user }}</span></router-link>
-                  <a @click="logout()" style="cursor: pointer;" >注销</a>                
-              </span>
+                <router-link to="/Myinfo">
+                <img :src="Avatar" alt="" style=" width: 32px; height: 32px; border-radius:40px;" >
+                <span style="margin-right: 5px; color:#FF9D00;">{{ user }}</span>
+                </router-link>
+            <a @click="logout()" style="cursor: pointer;">注销</a>
+            </span>
             <a href="#" @click="login()" v-else>登录</a>
-            <!-- <span>{{ time }}</span> -->
             <span class="split"> | </span>
             <router-link to="/Register"><a href="#">注册</a></router-link>
           </div>
         </el-col>
-          <div @click="checkCookie()" style="float: right ;right : 200px;">查Cookie</div>
-       
-       
+        <div @click="checkCookie()" style="float: right ;right : 200px;">查Cookie</div>
       </el-menu>
     </el-row>
   </div>
 </template>
 
 <script lang="ts">
-
+  import {
+    mapState
+  } from 'vuex'
   export default {
     data() {
       return {
@@ -64,66 +64,64 @@
         activeIndex: "1",
         //search 
         restaurants: [],
-        sear:"",
         state1: '',
         state2: '',
+        // 用户头像
+        Avatar:'blob:http://localhost:8080/68609292-b24d-47c2-a9e2-fbdb301cca94',
+
       };
     },
-    methods:{ 
-      search(){
-        this.axios.post('/users/Nav',{"sear" : this.sear}).then((res)=>{
-          console.log(res.data)
-          this.$router.replace('./Nav');
-          this.sear=""
-        })
+    computed: mapState({
+      msg: state => state.msg,
+       user() {
+        return this.$store.state.user;
+      }
+    }),
+    methods: {
+      search(e) {
+        this.$store.commit('SET_MSG', e.target.value)
+        this.$router.push("/Nav")
       },
       login() {
         this.$router.replace('./Login');
       },
       logout() {
-        
-        this.axios.get('/users/deleteCookie',{withCredentials : true}).then(()=>{
-            this.$store.dispatch('logout').then(() => {
-               this.$router.replace('./Login');
-             })
-        }).catch((err)=>{
+        this.axios.get('/users/deleteCookie', {
+          withCredentials: true
+        }).then(() => {
+          this.$store.dispatch('logout').then(() => {
+            this.$router.replace('./Login');
+          })
+        }).catch((err) => {
           console.log(err);
-          
         })
-        
       },
-       checkCookie(){
-        this.axios.get('/users/checkCookie',{withCredentials: true}).then((res) => {
-            this.$store.state.user = res.data;
-            console.log(res.data);
-            
+      checkCookie() {
+        this.axios.get('/users/checkCookie', {
+          withCredentials: true
+        }).then((res) => {
+          this.$store.state.user = res.data.userName;
+          console.log('res  res   ' +res.data.userName);
+          this.Avatar = res.data.userAvatar;
+          console.log('res data  ' + res.data.userAvatar);
         }).catch((err) => {
           console.log(err);
         });
-
-     },
+      },
     },
-    created () {
+    created() {
       this.checkCookie();
     },
-    computed: {
-      user(){
-            return  this.$store.state.user;
-      }
-    }
   }
-  
 </script>
 
 <style scoped>
-.el-input
-{
-  font-size:20px; 
-}
-li
-{
-  font-size:20px;
-}
+  .el-input {
+    font-size: 20px;
+  }
+  li {
+    font-size: 20px;
+  }
   #mainpagebanner {
     height: auto;
   }
@@ -136,23 +134,23 @@ li
     position: absolute;
     margin-left: 25px;
     width: 25px;
-    
   }
   .nav-first {
     left: 10%;
   }
-  .search{
+  .search {
     margin-top: 7% !important;
     position: relative;
-    left:130px;
+    left: 130px;
   }
   /* 登陆注册 */
   .login-registe {
     display: inline-block;
     position: relative;
+    width: fit-content;
     top: 15px;
-    left:330px;
-    font-size:20px;
+    left: 330px;
+    font-size: 20px;
   }
   .login-registe>a {
     text-decoration: none;
@@ -162,15 +160,13 @@ li
   .split {
     color: rgb(211, 211, 208)
   }
-
   /* 导航下划线 */
   a:-webkit-any-link {
     text-decoration: none !important;
   }
- .el-input-group__append{
-   height:20px !important;
+  .el-input-group__append {
+    height: 20px !important;
     margin-top: 7% !important;
   }
   /* 发表文章 */
- 
 </style>

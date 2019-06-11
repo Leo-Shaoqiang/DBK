@@ -41,7 +41,9 @@
       <IndexCommend style="margin-top:-3%;"></IndexCommend>
       <Footer></Footer>
     </el-row>
+   
   </div>
+  
 </template>
 
 <script>

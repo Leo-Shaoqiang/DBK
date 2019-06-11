@@ -4,9 +4,9 @@ var User = require("../models/user");
 var Blog = require("../models/blog");
 var Comt = require("../models/comt");
 // 图片上传
-var fs = require('fs');
 var multer  = require('multer')
 var upload = multer({ dest: 'upload/' });
+
 
 
 //登录
@@ -85,7 +85,8 @@ router.route("/register").post((req, res) => {
                          var users = new User({
                               name: req.body.name,
                               pass: req.body.pass,
-                              time: time
+                              time: time,
+                              Avatar :'blob:http://localhost:8080/24249695-3479-4dd7-9921-56050ff2f806'
                          });
                          users.save((err, res) => {
                               if (err) console.log(err);
@@ -178,16 +179,41 @@ router.route("/issue").post((req, res) => {
      });
 });
 
+
 router.route('/Nav').post((req, res) => {
-     Blog.find({title:req.body.sear}, (err,blog) => {
+     
+     Blog.find({"title":req.body.msg}, (err,blog) => {
           if (err) { console.log(err); }
-          
-          console.log(req.body.sear)
+          console.log(req.body.msg)
           console.log(blog)
           res.json(blog?blog:{}); 
           
      })
           
+           
+})
+
+//电影筛选页面
+router.route('/Movie').post((req, res) => {
+     if(req.body.my=="其他"){
+          Blog.find({}, (err,blog) => {
+               if (err) { console.log(err); }
+               console.log(req.body.my)
+               console.log(blog)
+               res.json(blog?blog:{}); 
+     
+               
+          })
+     }else{ 
+     Blog.find({"title":req.body.my}, (err,blog) => {
+          if (err) { console.log(err); }
+          console.log(req.body.my)
+          console.log(blog)
+          res.json(blog?blog:{}); 
+
+          
+     })
+}
            
 })
 
@@ -205,7 +231,12 @@ router.route("/checkCookie").get((req, res) => {
           res.end("");
      } else {
           let userName = req.session.userName;
-          res.json(userName);
+          User.findOne({
+               name: userName
+           },(err, user) => {
+                    res.json({'userName' : userName,'userAvatar': user.Avatar});
+           })
+          
           console.log("Cookie" + req.session.userName);
      }
 });
@@ -219,6 +250,8 @@ router.route("/deleteCookie").get((req, res) => {
                return;
           }
      });
+     // console.log('req.session.userName ' + req.session.userName);
+     
 });
 
 //动态路由寻找详情页面
@@ -277,11 +310,16 @@ router.route("/ContentInfo/Submit/:id").post((req, res) => {
 });
 
 // 上传图片
-router.route('/upload', upload.single('avatar')).post((req, res, next)=>{
-     res.send(req.file);
+router.route('/Myinfo', upload.single('avatar')).post((req, res, next)=>{
+      User.findOne({
+          name: req.body.user
+      },(err, user) => {
+           if(err)  console.log(err);
+          user.Avatar = req.body.imageUrl;
+          console.log( 'user'+user);
+      })
  });
-//  router.route('/form').get((req, res, next)=>{
-//      var form = fs.readFileSync('./form.html', {encoding: 'utf8'});
-//      res.send(form);
-//  });
+ router.route('/Myinfo').get((req, res, next)=>{
+     res.send('get' +  res)
+ });
 module.exports = router;

@@ -4,15 +4,18 @@
         <div class="info">
             <div class="info-img">
                 <!-- <img src="@/assets/imgs/a2.png" alt="用户头像"> -->
-                <el-upload class="avatar-uploader" 
+                <el-upload class="avatar-uploader"
+                with-credentials
                 name="avatar"
-                action="/upload" 
+                action="https://jsonplaceholder.typicode.com/posts/" 
                 :show-file-list="false" 
-                :on-success="getAvatarSuccess" 
-                :before-upload="beforeAvatarUpload">
-                    <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                :on-success="handleAvatarSuccess" 
+                :before-upload="beforeAvatarUpload"
+                >
+                    <img v-if="imageUrl" :src="imageUrl || defaultUrl " class="avatar">
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
+
             </div>
             <span>{{ user }}</span>
             <div class="info-follows">
@@ -49,32 +52,32 @@
                 user: '',
                 // 上传图片
                 imageUrl: '',
-                avatar: '', //头像文件名 使用时需要拼接形成完整路径
-                uploadData: {
-                            //使用 vuex 将用户名放在了 state 中 便于存取
-                 name: this.$store.state.user
-                }
+                defaultUrl : 'blob:http://localhost:8080/24249695-3479-4dd7-9921-56050ff2f806',
             };
         },
         methods: {
             checkCookie() {
-                this.axios.get('/users/checkCookie', {
+                this.axios.get('/users/checkCookie', { 
                     withCredentials: true
                 }).then((res) => {
-                    this.user = res.data;
-                    console.log(res.data);
+                    this.user = res.data.userName;
+                    console.log(res.data.userName);
                 }).catch((err) => {
                     console.log(err);
                 });
             },
-            // 上传图片
-             getAvatarSuccess(res, file) {
-                 // res是响应数据 file是文件信息
-                 console.log('Myinfo 73' + file);
-                 
-                this.avatar = res.avatar
-                console.log( 'Myinfo 76' + res) // 本例中是  { avatar: 'xxx.jpg' }
-             },
+              handleAvatarSuccess(res, file) {
+                 this.imageUrl = URL.createObjectURL(file.raw);
+                  this.axios.post('/users/Myinfo',{ imageUrl : this.imageUrl, user: this.$store.state.user },{ 
+                    withCredentials: true
+                }).then((res) => {
+                        console.log('axios '+ res.data);
+                }).catch((err) => {
+                    console.log(err);
+                });
+                 console.log(this.imageUrl);
+                 console.log(this.defaultUrl);
+              },
             beforeAvatarUpload(file) {
                 const isJPG = file.type === 'image/jpeg';
                 const isLt2M = file.size / 1024 / 1024 < 2;

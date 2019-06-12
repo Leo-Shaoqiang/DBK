@@ -1,5 +1,6 @@
 <template>
 <div class="detail">
+  <Nav></Nav>
     <el-row>
             <el-col :span="2" :offset="2">
                 <div class="tag-hot">热搜榜</div>
@@ -147,7 +148,7 @@ h1{
 }
 .detail-content img{
      width: 160px;
-    height: 180px; 
+    height:  180px; 
     margin-top:20px;
 }
   .el-row {

@@ -124,13 +124,18 @@
      
 <style scoped>
   .news{
-    border:1px solid grey;
+    /* border:1px solid grey; */
     width:350px;
     height:600px;
     font-size:20px;
+      background-color: antiquewhite;
+        border-radius:25px;
   }
   .news ul li{
    margin-top:15px;;
+  }
+   .news a{
+  text-decoration: none;
   }
  
 #ban ul li{
@@ -138,14 +143,17 @@
 }
             /* 轮播图图片 */
 #ban .it{
+
     display: none;  
     position: absolute;
 
 }
   #ban
-  {
+  { 
+  
     width:98%;
     margin-top:-1%;
+    ybox-shadow: 0 20px 18px rgba(41, 39, 37, 0.12);
   }
   .tb-b
   {

@@ -31,6 +31,7 @@
 }
 #sidebar
 {
+   
     width:350px;
     float: right;
     margin-right: 7%;
@@ -38,9 +39,11 @@
 }
 .hot-issues
 {
-    background-image: url("../assets/imgs/hotback.jpg");
+    background-image: url("../assets/imgs/hotback.jpg") ;
     background-size: 100% 100%;
-    border:1px solid orange;
+    /* border:1px solid orange; */
+    border-radius:25px;
+   box-shadow: 0 20px 18px rgba(41, 39, 37, 0.12);
     height:500px;
     width:100%;
     font-size:20px;
@@ -51,6 +54,7 @@ ul
 }
 li
 {
+     margin-top:20px;
     height:5%;
     margin:2% 0;
 }

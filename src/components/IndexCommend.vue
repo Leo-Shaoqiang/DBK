@@ -178,7 +178,8 @@
         border: 1px;
     }
     .back :hover {
-        background-color: rgb(250, 245, 245);
+        background-color:  antiquewhite;
+        border-radius: 25px;
     }
     .box-content {
         border: 1px;

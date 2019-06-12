@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="navbar">
     <el-row>
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#FFCC00">
         <el-col :span="2">  
@@ -116,6 +116,7 @@
 </script>
 
 <style scoped>
+
 .el-input
 {
   font-size:20px; 
@@ -145,6 +146,7 @@ li
     margin-top: 7% !important;
     position: relative;
     left:130px;
+    
   }
   /* 登陆注册 */
   .login-registe {

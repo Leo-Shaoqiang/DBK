@@ -69,7 +69,7 @@
 			}
 		},
 		methods: {
-			
+			//TIJIA
 			submit() {
 				
 						this.axios.post('/users/issue', this.blog).then((res) => {

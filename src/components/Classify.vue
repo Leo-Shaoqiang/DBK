@@ -161,17 +161,17 @@
 <style>
         .tag-classify {
                 margin-left: 10%;
-                border: 1px solid yellow;
-                background-color: gold;
-                color: white;
+               
+                 color:goldenrod;
+        
                 width: 80px;
                 height: 40px;
-                font-size: 30px;
+                font-size: 40px;
                 margin-top: 5%;
         }
         .classify-box {
                 margin-left: 10%;
-                border: 3px solid gold;
+                /* border: 3px solid gold; */
                 color: white;
                 width: 80%;
                 height: 400px;

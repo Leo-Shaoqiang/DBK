@@ -1,7 +1,10 @@
 <template>
   <div>
+    <div class="navbar">
     <Navbar></Navbar>
+    </div>
     <!-- 轮播图 -->
+  
     <div id="banner">
       <div class="arrowleft"><img src="..\assets\imgs\icons\angle-left.png" width="50px"></div>
       <div class="arrowright"><img src="..\assets\imgs\icons\angle-right.png" width="50px"></div>
@@ -34,14 +37,17 @@
         </ul>
       </div>
     </div>
+    <div class="bg">
     <!-- 首页推荐 -->
     <Tagsoon style="margin-bottom:5%;"></Tagsoon>
     <el-row>
       
       <IndexCommend style="margin-top:-3%;"></IndexCommend>
+  
       <Footer></Footer>
     </el-row>
    
+  </div>
   </div>
   
 </template>
@@ -90,10 +96,17 @@ import Tagsoon from './Tagsoon.vue'
      
 <style scoped>
   @import '../../static/css/tab.css';
+  .bg{
+  width: 100%;
+  height: 100%;
+ background:url(../assets/imgs/背景.jpg); 
+	/* background-attachment:fixed; */
+  }
+ 
   #banner
   {
     width:98%;
-    margin-top:-1%;
+    margin-top:-1%; 
   }
   .tab-btn
   {

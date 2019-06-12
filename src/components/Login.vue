@@ -114,7 +114,7 @@ import Navbar from '@/views/Navbar.vue';
 		width: 100%;
 		height: 500px;
 		margin: 0 auto;
-		background-color: white;
+		/* background-color:#fff; */
 		box-shadow: 0px 0px 10px 7px grey;
 	}
 	/* 左边图片 */

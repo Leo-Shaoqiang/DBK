@@ -1,22 +1,25 @@
 <template>
-  <div>
+  <div > 
     <Navbar></Navbar>
     <el-row>
         <el-carousel :interval="5000" arrow="always">
           <el-carousel-item v-for="item in imgList" :key="item.id">
           <el-row>
            <el-col :span="24"><img ref="imgHeight" :src="item.idView" class="banner_img"/></el-col>
-          </el-row>
+          </el-row >
           </el-carousel-item>
         </el-carousel>
       </el-row>
-      
+      <div class="bg">
     <Classify></Classify>
     <el-row>
     <IndexCommend></IndexCommend>
+      <Footer></Footer>
+  
     
       </el-row>
        
+    </div>
   </div>
   </template>
 
@@ -24,12 +27,14 @@
    import Navbar from '@/views/Navbar.vue';
   import Classify from './Classify.vue'
   import IndexCommend from './IndexCommend'
+    import Footer from './Footer.vue'
 
   export default {
     components: {
       Navbar,
       Classify,
       IndexCommend,
+      Footer
     },
     data() {  
       return {
@@ -82,6 +87,14 @@
 </script>
      
 <style scoped>
+  .bg{
+  width: 100%;
+  height: 100%;
+ background:url(../assets/imgs/背景.jpg); 
+	/* background-attachment:fixed; */
+  }
+ 
+
   /* 导航鼠标移入 */
   li.el-menu-item:hover {
     background-color: #fff !important;

@@ -24,7 +24,7 @@
                         
                         <el-row style="margin-top:5%;">
                             <el-col :span="4" :offset="4">
-                                <div class="font-tag">用户id:yyc123</div>
+                                <div class="font-tag">用户id:{{ this.Auid }}</div>
                             </el-col>
                             <el-col :span="4" :offset="2">
                                 <div class="font-tag">推荐星级:
@@ -125,6 +125,7 @@
         name: "ContentInfo",
         data() {
             return {
+                Auid : '',
                 title: '',
                 tag: '',
                 content: '',
@@ -192,6 +193,7 @@
         mounted() {
             this.id = this.$route.params.id
             this.axios.get('/users/ContentInfo/' + this.id).then((res) => {
+                this.Auid = res.data.blog.Auid
                 this.time = res.data.blog.time
                 this.title = res.data.blog.title
                 this.lists = res.data.comt;

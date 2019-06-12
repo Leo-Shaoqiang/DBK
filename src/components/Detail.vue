@@ -146,10 +146,16 @@ h1{
  margin-top:60px;
  border-top: 1px solid goldenrod;
 }
+<<<<<<< HEAD
 .detail-content img{
      width: 160px;
     height:  180px; 
     margin-top:20px;
+=======
+p
+{
+  height:30px;
+>>>>>>> 8ef3c5f06fa0307b458f7f495b1ebdde0d18ecbc
 }
   .el-row {
     
@@ -183,4 +189,9 @@ h1{
   .detail-comment{
     margin-left:150px;
   }
+.detail-commiunation li
+{
+ display: inline;
+ margin-left:15px;
+}
 </style>

@@ -9,7 +9,6 @@
         <div class="login">
                 <div class="nav-1">
                 <img class="nav-logo" src="../assets/imgs/logo.jpg" alt="" style="height:150px;width:270px;margin-left:30%;margin-top:0%;">
-                
                         <p style="font-size:50px; margin-left:40%;margin-top:70%;">Share</p>
                         <h4 style=" margin-left:60%;">分享你的生活</h4>
                 </div>

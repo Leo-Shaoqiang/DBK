@@ -10,12 +10,10 @@
           </el-carousel-item>
         </el-carousel>
       </el-row>
-      <div class="bg">
+      <!-- 调用分类组件 -->
     <Classify></Classify>
     <el-row>
-    <IndexCommend></IndexCommend>
-      <Footer></Footer>
-  
+    
     
       </el-row>
        

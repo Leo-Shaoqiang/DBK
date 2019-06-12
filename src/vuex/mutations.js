@@ -10,6 +10,11 @@
     state.isLogin = false;
     state.token = '';
   }
- 
+  export  function SET_MSG(state, sear) {
+      state.sear = sear
+      console.log('保存', state.sear)
+  
+    }
+   
 
 

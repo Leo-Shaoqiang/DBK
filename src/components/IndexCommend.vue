@@ -29,14 +29,17 @@
                     <div class="back">
                         <el-row>
                             <el-row>
-                                <el-col :span="4" style="margin-left:5%;padding-top:2%;">
+                                <el-col :span="6" style="margin-left:5%;padding-top:2%;">
                                     <img src="../assets/imgs/icons/head2.jpg" width="50px" style="float:left;">
                                     <span id="usersname" style="float:left;margin-top:20px;">{{item.Auid}}</span>
                                 </el-col>
-                                <el-col :span="6" style="padding-top:2%;">
+                                <el-col :span="16" style="padding-top:2%;">
                                     <!-- <h1>{{item._id}}</h1>   id                                    -->
-                                    <h1>{{item.title}}</h1>
-                                    <h3>{{item.tag}}</h3>
+                                    <div class="blogt">
+                                        <h2 >{{item.title}}</h2>
+                                    <h4>{{item.tag}}</h4>
+                                    </div>
+                                    
                                 </el-col>
                             </el-row>
                             <el-row style="margin-top:2%;margin-bottom:2%;">
@@ -113,6 +116,7 @@
             ClickBar(index) {
                 if(this.isLiked == -1){
                     this.isLiked = index;
+                
                 }else{
                     this.isLiked = -1;
                 }
@@ -185,7 +189,7 @@
         border: 1px;
         width:100%;
         height:150px;
-        border-top: 1px solid  goldenrod;;
+        border-top: 1px solid rgb(247, 250, 99);
         overflow: hidden;
         margin-left: 5%;
     }

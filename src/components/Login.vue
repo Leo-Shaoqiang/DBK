@@ -48,11 +48,12 @@ import Navbar from '@/views/Navbar.vue';
 					if (valid) {
 						this.axios.post('/users/validate', this.user,{withCredentials: true}).then((res) => {
 							var data = res.data;
-							if (this.user.name === data.name && this.user.pass === data.pass) {
+							if (this.user.name === data.name && this.user.pass === data.pass && this.user.name  != null) {
 								this.$store.dispatch('login', this.user.name).then((res) => {
 									// console.log(res);//数据库返回数据
 									// console.log(data.name);
-									// console.log(data.pass);							
+									// console.log(data.pass);
+									console.log(this.user);															
 									if (this.user.name == undefined || this.user.pass == undefined) {
 										this.$message({
 											type: 'error',
